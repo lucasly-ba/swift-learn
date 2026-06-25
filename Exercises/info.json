@@ -286,6 +286,30 @@
       "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures"
     },
     {
+      "name": "init1",
+      "dir": "09_initialization",
+      "hint": "With no custom init a struct gets a memberwise one. Add init(value: Int) and clamp with min(100, max(0, value)).",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/initialization"
+    },
+    {
+      "name": "init2",
+      "dir": "09_initialization",
+      "hint": "Change init to init?. Then: guard let n = Int(text), (1...65535).contains(n) else { return nil }.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/initialization"
+    },
+    {
+      "name": "init3",
+      "dir": "09_initialization",
+      "hint": "A convenience init must delegate. Call self.init(celsius: (fahrenheit - 32) / 1.8) instead of setting self.celsius.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/initialization"
+    },
+    {
+      "name": "init4",
+      "dir": "09_initialization",
+      "hint": "Implement required init(name:) in Circle: set radius to 1.0, then super.init(name: name).",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/initialization"
+    },
+    {
       "name": "enums1",
       "dir": "10_enums",
       "hint": "Add cases to CompassDirection. Raw values auto-increment from 1. Use .rawValue property. Use init(rawValue:) for creation.",
