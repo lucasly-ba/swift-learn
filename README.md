@@ -6,6 +6,15 @@ time; the runner recompiles it on save and moves you forward when it passes. Eac
 exercise links to the matching chapter of
 [The Swift Programming Language](https://docs.swift.org/swift-book/).
 
+This is a fork of [Swiftlings](https://github.com/tornikegomareli/swiftlings) by
+Tornike Gomareli, which is a macOS-focused project. The exercises and the runner
+come from there. What this fork adds is making the whole thing build and run on
+Linux: it targets a Swift 6.x toolchain from swift.org, fixes the toolchain
+issues that showed up along the way (see [Notes on the Linux port](#notes-on-the-linux-port)),
+adds a `doc` link to the relevant Swift book chapter in every hint, ships a
+Makefile and Linux CI, and rewrites the runner's watch loop to compile cleanly
+under the Swift 6 language mode.
+
 ## Prerequisites
 
 - Swift 6.x, installed from [swift.org](https://www.swift.org/install/linux/)
