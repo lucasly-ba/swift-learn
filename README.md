@@ -15,6 +15,25 @@ adds a `doc` link to the relevant Swift book chapter in every hint, ships a
 Makefile and Linux CI, and rewrites the runner's watch loop to compile cleanly
 under the Swift 6 language mode.
 
+## Why Swift on Linux
+
+Swift is not only for Apple platforms, and most people who reach for it on Linux
+are not writing iOS apps. Common reasons:
+
+- **Server-side Swift.** Frameworks like Vapor and Hummingbird run on Linux. If
+  you write Swift backends, they are built, tested, and deployed on Linux,
+  usually inside containers.
+- **Contributing to Swift itself.** The compiler, standard library, Foundation,
+  and the package manager are all developed and tested on Linux. Learning the
+  language on Linux is a natural first step toward working on the toolchain.
+- **No Mac needed.** Swift is worth learning on its own, and you do not need
+  Apple hardware to do it. Students and anyone on a Linux machine can start here.
+- **CI/CD.** Swift continuous integration runs in Linux containers (the official
+  `swift` Docker images). Knowing the Linux toolchain helps when a build behaves
+  differently from a Mac.
+- **Cross-platform reach.** Swift targets Linux, Windows, and embedded systems.
+  Learning it outside Xcode keeps the focus on the language rather than the IDE.
+
 ## Prerequisites
 
 - Swift 6.x, installed from [swift.org](https://www.swift.org/install/linux/)
