@@ -33,6 +33,10 @@ struct HintCommand: ParsableCommand {
       print("")
       print("💡 \(exerciseForHint.hint)")
       print("")
+      if let doc = exerciseForHint.doc {
+        print("📖 Read more: \(doc)")
+        print("")
+      }
 
     } catch {
       Terminal.error("Failed to show hint: \(error)")

@@ -6,472 +6,566 @@
     {
       "name": "intro1",
       "dir": "00_basics",
-      "hint": "This exercise compiles successfully! Run it to see the output."
+      "hint": "This exercise compiles successfully! Run it to see the output.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics"
     },
     {
       "name": "intro2",
       "dir": "00_basics",
-      "hint": "Swift uses 'print()' not 'println()'. The 'ln' part is automatic!"
+      "hint": "Swift uses 'print()' not 'println()'. The 'ln' part is automatic!",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics"
     },
     {
       "name": "variables1",
       "dir": "00_basics",
-      "hint": "Variables in Swift are declared with 'var' keyword. Try: var x = 5"
+      "hint": "Variables in Swift are declared with 'var' keyword. Try: var x = 5",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics"
     },
     {
       "name": "variables2",
       "dir": "00_basics",
-      "hint": "The 'let' keyword creates constants that cannot be changed. Use 'var' for values that need to change!"
+      "hint": "The 'let' keyword creates constants that cannot be changed. Use 'var' for values that need to change!",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics"
     },
     {
       "name": "variables3",
       "dir": "00_basics",
-      "hint": "Use 'let' for values that won't change (like pi), and 'var' for values that will change (like radius)."
+      "hint": "Use 'let' for values that won't change (like pi), and 'var' for values that will change (like radius).",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics"
     },
     {
       "name": "types1",
       "dir": "00_basics",
-      "hint": "String for text, Int for whole numbers, Double for decimal numbers. Match the type to the value!"
+      "hint": "String for text, Int for whole numbers, Double for decimal numbers. Match the type to the value!",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics"
     },
     {
       "name": "types2",
       "dir": "00_basics",
-      "hint": "Add a type annotation like 'let temperature: Double' or use a decimal initial value like '100.0'"
+      "hint": "Add a type annotation like 'let temperature: Double' or use a decimal initial value like '100.0'",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics"
     },
     {
       "name": "operators1",
       "dir": "00_basics",
-      "hint": "Remember: + for addition, - for subtraction, * for multiplication, / for division, % for remainder"
+      "hint": "Remember: + for addition, - for subtraction, * for multiplication, / for division, % for remainder",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics"
     },
     {
       "name": "operators2",
       "dir": "00_basics",
-      "hint": "Use >= for 'greater than or equal', && for 'and', || for 'or'. For ranges, combine conditions with &&"
+      "hint": "Use >= for 'greater than or equal', && for 'and', || for 'or'. For ranges, combine conditions with &&",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics"
     },
     {
       "name": "strings1",
       "dir": "00_basics",
-      "hint": "Use \\(variableName) inside strings for interpolation. For concatenation, use the + operator."
+      "hint": "Use \\(variableName) inside strings for interpolation. For concatenation, use the + operator.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics"
     },
     {
       "name": "strings2",
       "dir": "00_basics",
-      "hint": "Multi-line strings use triple quotes \"\"\" at the start and end. Use \\ for escape sequences like \\\" and \\n"
+      "hint": "Multi-line strings use triple quotes \"\"\" at the start and end. Use \\ for escape sequences like \\\" and \\n",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics"
     },
     {
       "name": "if1",
       "dir": "01_control_flow",
-      "hint": "The condition in an if statement must be a Bool. Use comparison operators like >= to create boolean conditions."
+      "hint": "The condition in an if statement must be a Bool. Use comparison operators like >= to create boolean conditions.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow"
     },
     {
       "name": "if2",
       "dir": "01_control_flow",
-      "hint": "Use < for age check. For multiple conditions, use || (OR) to check if student OR senior (age >= 65)."
+      "hint": "Use < for age check. For multiple conditions, use || (OR) to check if student OR senior (age >= 65).",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow"
     },
     {
       "name": "switch1",
       "dir": "01_control_flow",
-      "hint": "Each case needs a return statement. Swift doesn't fall through cases by default."
+      "hint": "Each case needs a return statement. Swift doesn't fall through cases by default.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow"
     },
     {
       "name": "switch2",
       "dir": "01_control_flow",
-      "hint": "Use ranges in switch cases: 90...100 for A, 80...89 for B, etc. Check for invalid scores first!"
+      "hint": "Use ranges in switch cases: 90...100 for A, 80...89 for B, etc. Check for invalid scores first!",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow"
     },
     {
       "name": "loops1",
       "dir": "01_control_flow",
-      "hint": "Use ... for closed range (includes both bounds). For even numbers, check if number % 2 == 0."
+      "hint": "Use ... for closed range (includes both bounds). For even numbers, check if number % 2 == 0.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow"
     },
     {
       "name": "loops2",
       "dir": "01_control_flow",
-      "hint": "Change != to ==, increment with +=, and use 'while' instead of 'if' for the digit collection."
+      "hint": "Change != to ==, increment with +=, and use 'while' instead of 'if' for the digit collection.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow"
     },
     {
       "name": "loops3",
       "dir": "01_control_flow",
-      "hint": "Use 'return number' to exit the function early. Use 'continue' to skip to the next iteration."
+      "hint": "Use 'return number' to exit the function early. Use 'continue' to skip to the next iteration.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow"
     },
     {
       "name": "functions1",
       "dir": "02_functions",
-      "hint": "Add -> String return type. Add parameters (a: Int, b: Int). Use parameter names inside the function body."
+      "hint": "Add -> String return type. Add parameters (a: Int, b: Int). Use parameter names inside the function body.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions"
     },
     {
       "name": "functions2",
       "dir": "02_functions",
-      "hint": "Change 'x' and 'y' to 'base' and 'exponent'. Add 'of' before number. Use _ to omit external name."
+      "hint": "Change 'x' and 'y' to 'base' and 'exponent'. Add 'of' before number. Use _ to omit external name.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions"
     },
     {
       "name": "functions3",
       "dir": "02_functions",
-      "hint": "Add = 1.0 for default rate. Use '...' for variadic: (numbers: Int...). Add default values with =."
+      "hint": "Add = 1.0 for default rate. Use '...' for variadic: (numbers: Int...). Add default values with =.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions"
     },
     {
       "name": "functions4",
       "dir": "02_functions",
-      "hint": "Add 'inout' before parameter types. The function modifies the original values passed with &."
+      "hint": "Add 'inout' before parameter types. The function modifies the original values passed with &.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions"
     },
     {
       "name": "functions5",
       "dir": "02_functions",
-      "hint": "Function type is (Int, Int) -> Int. Parameter type should accept functions. Return type is a function."
+      "hint": "Function type is (Int, Int) -> Int. Parameter type should accept functions. Return type is a function.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions"
     },
     {
       "name": "arrays1",
       "dir": "03_collections",
-      "hint": "Use commas between elements. Empty array: [String](). Type should be Array<Double>. Arrays start at index 0. Use .count property."
+      "hint": "Use commas between elements. Empty array: [String](). Type should be Array<Double>. Arrays start at index 0. Use .count property.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/collectiontypes"
     },
     {
       "name": "arrays2",
       "dir": "03_collections",
-      "hint": "Use .append(), .insert(_:at:), .removeLast(). Filter needs == 0. String interpolation needs \\()."
+      "hint": "Use .append(), .insert(_:at:), .removeLast(). Filter needs == 0. String interpolation needs \\().",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/collectiontypes"
     },
     {
       "name": "dictionaries1",
       "dir": "03_collections",
-      "hint": "Use : between key and value. Empty dict: [:]. Values should be Double. Use [key] = value syntax. Use .count property."
+      "hint": "Use : between key and value. Empty dict: [:]. Values should be Double. Use [key] = value syntax. Use .count property.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/collectiontypes"
     },
     {
       "name": "dictionaries2",
       "dir": "03_collections",
-      "hint": "Unwrap before +=. Use .updateValue(_:forKey:). Use .removeValue(forKey:). Assign nil to remove."
+      "hint": "Unwrap before +=. Use .updateValue(_:forKey:). Use .removeValue(forKey:). Assign nil to remove.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/collectiontypes"
     },
     {
       "name": "sets1",
       "dir": "03_collections",
-      "hint": "Use square brackets []. Empty: Set<String>(). Convert each string to Character. Use .union(), .intersection(), .subtracting()."
+      "hint": "Use square brackets []. Empty: Set<String>(). Convert each string to Character. Use .union(), .intersection(), .subtracting().",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/collectiontypes"
     },
     {
       "name": "optionals1",
       "dir": "04_optionals",
-      "hint": "Use 'if let name = name'. Add ! to force unwrap. Use ?? \"Unknown\" for default value."
+      "hint": "Use 'if let name = name'. Add ! to force unwrap. Use ?? \"Unknown\" for default value.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics"
     },
     {
       "name": "optionals2",
       "dir": "04_optionals",
-      "hint": "Use 'guard let name = name'. Combine with commas. Use the unwrapped value in conditions and operations."
+      "hint": "Use 'guard let name = name'. Combine with commas. Use the unwrapped value in conditions and operations.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics"
     },
     {
       "name": "optionals3",
       "dir": "04_optionals",
-      "hint": "Add ? for optional chaining. Use person1 for city. Access through optional chain: ?. for each level."
+      "hint": "Add ? for optional chaining. Use person1 for city. Access through optional chain: ?. for each level.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics"
     },
     {
       "name": "optionals4",
       "dir": "04_optionals",
-      "hint": "Add ?? \"light\". Chain with ?? 16. Use parentheses: (saved ?? true). Handle double optionals with ?? and casting."
+      "hint": "Add ?? \"light\". Chain with ?? 16. Use parentheses: (saved ?? true). Handle double optionals with ?? and casting.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics"
     },
     {
       "name": "structs1",
       "dir": "05_structs",
-      "hint": "Use 'struct' keyword. Add properties to Person. Use Point(x: 10, y: 20) syntax. Structs get automatic initializers."
+      "hint": "Use 'struct' keyword. Add properties to Person. Use Point(x: 10, y: 20) syntax. Structs get automatic initializers.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures"
     },
     {
       "name": "structs2",
       "dir": "05_structs",
-      "hint": "Add -> Double return type. Perimeter = 2 * (width + height). Check width == height. Use 'static' for class methods."
+      "hint": "Add -> Double return type. Perimeter = 2 * (width + height). Check width == height. Use 'static' for class methods.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures"
     },
     {
       "name": "structs3",
       "dir": "05_structs",
-      "hint": "Fahrenheit needs get/set. Kelvin = celsius + 273.15, remove setter. Use <= 0 for freezing. Use 'var' for computed properties."
+      "hint": "Fahrenheit needs get/set. Kelvin = celsius + 273.15, remove setter. Use <= 0 for freezing. Use 'var' for computed properties.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures"
     },
     {
       "name": "structs4",
       "dir": "05_structs",
-      "hint": "Add 'mutating' keyword. Initialize balance = 0. Add second init. Check balance >= amount before withdrawing."
+      "hint": "Add 'mutating' keyword. Initialize balance = 0. Add second init. Check balance >= amount before withdrawing.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures"
     },
     {
       "name": "classes1",
       "dir": "06_classes",
-      "hint": "Change to 'class'. Add init method. Car should inherit (: Vehicle). Call super.init after setting properties."
+      "hint": "Change to 'class'. Add init method. Car should inherit (: Vehicle). Call super.init after setting properties.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures"
     },
     {
       "name": "classes2",
       "dir": "06_classes",
-      "hint": "Remove 'final' to allow override. Add 'override' keyword. Set properties before super.init. Return \"Meow!\" with exclamation."
+      "hint": "Remove 'final' to allow override. Add 'override' keyword. Set properties before super.init. Return \"Meow!\" with exclamation.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures"
     },
     {
       "name": "classes3",
       "dir": "06_classes",
-      "hint": "Make fileHandle private. Use 'static' for class property. Add deinit {}. Change 'private' to 'fileprivate' for verifyPin."
+      "hint": "Make fileHandle private. Use 'static' for class property. Add deinit {}. Change 'private' to 'fileprivate' for verifyPin.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures"
     },
     {
       "name": "classes4",
       "dir": "06_classes",
-      "hint": "Add 'lazy' keyword. Make shared 'static'. Use 'class' instead of 'static' for overridable methods. Make init private."
+      "hint": "Add 'lazy' keyword. Make shared 'static'. Use 'class' instead of 'static' for overridable methods. Make init private.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures"
     },
     {
       "name": "enums1",
       "dir": "07_enums",
-      "hint": "Add cases to CompassDirection. Raw values auto-increment from 1. Use .rawValue property. Use init(rawValue:) for creation."
+      "hint": "Add cases to CompassDirection. Raw values auto-increment from 1. Use .rawValue property. Use init(rawValue:) for creation.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/enumerations"
     },
     {
       "name": "enums2",
       "dir": "07_enums",
-      "hint": "Remove labels from case definition. Add (Int, Int, Int, Int) to upc case. Extract values in switch cases. Use let to bind values."
+      "hint": "Remove labels from case definition. Add (Int, Int, Int, Int) to upc case. Extract values in switch cases. Use let to bind values.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/enumerations"
     },
     {
       "name": "enums3",
       "dir": "07_enums",
-      "hint": "Complete all switch cases. Check rawValue <= 4 for isInner. Make allCases static. Operations should return calculated results."
+      "hint": "Complete all switch cases. Check rawValue <= 4 for isInner. Make allCases static. Operations should return calculated results.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/enumerations"
     },
     {
       "name": "enums4",
       "dir": "07_enums",
-      "hint": "Add : CaseIterable. Use 'indirect' for recursive enum. Evaluate recursively. Count: 1 + next.count(). Array: [value] + next.toArray()."
+      "hint": "Add : CaseIterable. Use 'indirect' for recursive enum. Evaluate recursively. Count: 1 + next.count(). Array: [value] + next.toArray().",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/enumerations"
     },
     {
       "name": "protocols1",
       "dir": "08_protocols",
-      "hint": "Add property/method requirements to protocols. Conform with : Protocol. Implement all requirements. Use Describable as parameter type."
+      "hint": "Add property/method requirements to protocols. Conform with : Protocol. Implement all requirements. Use Describable as parameter type.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols"
     },
     {
       "name": "protocols2",
       "dir": "08_protocols",
-      "hint": "Add : Vehicle to inherit. Use 'extension Vehicle' for defaults. Return formatted string. Add where T: Vehicle constraint."
+      "hint": "Add : Vehicle to inherit. Use 'extension Vehicle' for defaults. Return formatted string. Add where T: Vehicle constraint.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols"
     },
     {
       "name": "protocols3",
       "dir": "08_protocols",
-      "hint": "Use Named & Aged for composition. Add : Container to Stack. Fix count and getAll. Use items.removeLast() for retrieve."
+      "hint": "Use Named & Aged for composition. Add : Container to Stack. Fix count and getAll. Use items.removeLast() for retrieve.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols"
     },
     {
       "name": "protocols4",
       "dir": "08_protocols",
-      "hint": "Add : AnyObject for class-only. Use 'weak var delegate'. Set downloader.delegate = self. Comment out struct conformance."
+      "hint": "Add : AnyObject for class-only. Use 'weak var delegate'. Set downloader.delegate = self. Comment out struct conformance.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols"
     },
     {
       "name": "extensions1",
       "dir": "09_extensions",
-      "hint": "Add 'var isEven: Bool { self % 2 == 0 }'. Use components(separatedBy:). Add 'where Element == Int'. Use pow() for rounding."
+      "hint": "Add 'var isEven: Bool { self % 2 == 0 }'. Use components(separatedBy:). Add 'where Element == Int'. Use pow() for rounding.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/extensions"
     },
     {
       "name": "extensions2",
       "dir": "09_extensions",
-      "hint": "Add : Describable to extension. Use String(repeating:count:). Check indices.contains(). Add where Element: Describable."
+      "hint": "Add : Describable to extension. Use String(repeating:count:). Check indices.contains(). Add where Element: Describable.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/extensions"
     },
     {
       "name": "extensions3",
       "dir": "09_extensions",
-      "hint": "Add 'where Element: Numeric'. Use reduce. Add enum ValidationError inside extension. Return \"ID-\\(Int.random(in: 10000...99999))\"."
+      "hint": "Add 'where Element: Numeric'. Use reduce. Add enum ValidationError inside extension. Return \"ID-\\(Int.random(in: 10000...99999))\".",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/extensions"
     },
     {
       "name": "extensions4",
       "dir": "09_extensions",
-      "hint": "Add 'where Value: Numeric' and 'where Key == String'. Use 'guard let self else { throw }'. Add 'where Element: Priceable'."
+      "hint": "Add 'where Value: Numeric' and 'where Key == String'. Use 'guard let self else { throw }'. Add 'where Element: Priceable'.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/extensions"
     },
     {
       "name": "generics1",
       "dir": "10_generics",
-      "hint": "Add <T> after function name. Change parameter/return types to T. Add <T: Comparable>. Use <T, U> for multiple parameters."
+      "hint": "Add <T> after function name. Change parameter/return types to T. Add <T: Comparable>. Use <T, U> for multiple parameters.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/generics"
     },
     {
       "name": "generics2",
       "dir": "10_generics",
-      "hint": "Add <T: Equatable>. Add <T: Numeric>. Use <T: Comparable & CustomStringConvertible>. Add 'where T: Comparable' to method."
+      "hint": "Add <T: Equatable>. Add <T: Numeric>. Use <T: Comparable & CustomStringConvertible>. Add 'where T: Comparable' to method.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/generics"
     },
     {
       "name": "generics3",
       "dir": "10_generics",
-      "hint": "Add 'associatedtype Item'. Use items.removeFirst(). Capture store in var. Implement storage[key] = value."
+      "hint": "Add 'associatedtype Item'. Use items.removeFirst(). Capture store in var. Implement storage[key] = value.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/generics"
     },
     {
       "name": "generics4",
       "dir": "10_generics",
-      "hint": "Add 'where Failure: Error'. Check case with switch. Add ': Equatable where Success: Equatable, Failure: Equatable'. Use '-> some Shape'."
+      "hint": "Add 'where Failure: Error'. Check case with switch. Add ': Equatable where Success: Equatable, Failure: Equatable'. Use '-> some Shape'.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/generics"
     },
     {
       "name": "error_handling1",
       "dir": "11_error_handling",
-      "hint": "Define MyError enum conforming to Error. Use 'throw' to throw errors. Use do-catch blocks to handle errors."
+      "hint": "Define MyError enum conforming to Error. Use 'throw' to throw errors. Use do-catch blocks to handle errors.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/errorhandling"
     },
     {
       "name": "error_handling2",
       "dir": "11_error_handling",
-      "hint": "Add 'throws' to function signature. Use 'defer' for cleanup code. Handle all error cases in catch blocks."
+      "hint": "Add 'throws' to function signature. Use 'defer' for cleanup code. Handle all error cases in catch blocks.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/errorhandling"
     },
     {
       "name": "error_handling3",
       "dir": "11_error_handling",
-      "hint": "Use 'try?' for optional results. Use 'try!' when you're certain there's no error. Use 'rethrows' for higher-order functions."
+      "hint": "Use 'try?' for optional results. Use 'try!' when you're certain there's no error. Use 'rethrows' for higher-order functions.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/errorhandling"
     },
     {
       "name": "error_handling4",
       "dir": "11_error_handling",
-      "hint": "Use Result<Success, Failure> type. Use .flatMap for chaining. Implement custom error descriptions."
+      "hint": "Use Result<Success, Failure> type. Use .flatMap for chaining. Implement custom error descriptions.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/errorhandling"
     },
     {
       "name": "closures1",
       "dir": "12_closures",
-      "hint": "Basic closure syntax: { (params) -> ReturnType in ... }. Use trailing closure syntax. Shorthand argument names: $0, $1."
+      "hint": "Basic closure syntax: { (params) -> ReturnType in ... }. Use trailing closure syntax. Shorthand argument names: $0, $1.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures"
     },
     {
       "name": "closures2",
       "dir": "12_closures",
-      "hint": "Use [weak self] or [unowned self] in capture lists. @escaping is needed for stored closures. Avoid retain cycles."
+      "hint": "Use [weak self] or [unowned self] in capture lists. @escaping is needed for stored closures. Avoid retain cycles.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures"
     },
     {
       "name": "closures3",
       "dir": "12_closures",
-      "hint": "Use @autoclosure for delayed evaluation. Multiple trailing closures have labels. Use functional methods like map, filter, reduce."
+      "hint": "Use @autoclosure for delayed evaluation. Multiple trailing closures have labels. Use functional methods like map, filter, reduce.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures"
     },
     {
       "name": "closures4",
       "dir": "12_closures",
-      "hint": "Build function composition with closures. Use currying for partial application. Create DSLs with closure builders."
+      "hint": "Build function composition with closures. Use currying for partial application. Create DSLs with closure builders.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures"
     },
     {
       "name": "memory1",
       "dir": "13_memory_management",
-      "hint": "Use 'weak' for delegates and optional references. Use 'unowned' when you're sure the reference won't be nil."
+      "hint": "Use 'weak' for delegates and optional references. Use 'unowned' when you're sure the reference won't be nil.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/automaticreferencecounting"
     },
     {
       "name": "memory2",
       "dir": "13_memory_management",
-      "hint": "Closures capture values strongly by default. Use capture lists [weak self] to break cycles. Check for nil with guard let."
+      "hint": "Closures capture values strongly by default. Use capture lists [weak self] to break cycles. Check for nil with guard let.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/automaticreferencecounting"
     },
     {
       "name": "memory3",
       "dir": "13_memory_management",
-      "hint": "Use weak for parent references in children. Timer retains its target strongly. Notification observers can cause retention."
+      "hint": "Use weak for parent references in children. Timer retains its target strongly. Notification observers can cause retention.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/automaticreferencecounting"
     },
     {
       "name": "memory4",
       "dir": "13_memory_management",
-      "hint": "Implement object pooling for reuse. Use weak collections for observers. Profile memory usage and identify leaks."
+      "hint": "Implement object pooling for reuse. Use weak collections for observers. Profile memory usage and identify leaks.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/automaticreferencecounting"
     },
     {
       "name": "property_wrappers1",
       "dir": "14_property_wrappers",
-      "hint": "Use @propertyWrapper. Implement wrappedValue. Add init(wrappedValue:). Access with $propertyName for projectedValue."
+      "hint": "Use @propertyWrapper. Implement wrappedValue. Add init(wrappedValue:). Access with $propertyName for projectedValue.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties"
     },
     {
       "name": "property_wrappers2",
       "dir": "14_property_wrappers",
-      "hint": "Implement projectedValue for $ access. Use willSet/didSet in wrappedValue. Property wrappers can have their own storage."
+      "hint": "Implement projectedValue for $ access. Use willSet/didSet in wrappedValue. Property wrappers can have their own storage.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties"
     },
     {
       "name": "property_wrappers3",
       "dir": "14_property_wrappers",
-      "hint": "Property wrappers can be generic. Multiple wrappers compose from inside out. Use static subscript for key paths."
+      "hint": "Property wrappers can be generic. Multiple wrappers compose from inside out. Use static subscript for key paths.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties"
     },
     {
       "name": "property_wrappers4",
       "dir": "14_property_wrappers",
-      "hint": "Implement Codable for property wrappers. Use @dynamicMemberLookup for flexible access. Create DSLs with wrappers."
+      "hint": "Implement Codable for property wrappers. Use @dynamicMemberLookup for flexible access. Create DSLs with wrappers.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties"
     },
     {
       "name": "concurrency1",
       "dir": "15_concurrency",
-      "hint": "Use 'async' and 'await' keywords. Create Tasks for concurrent work. Use try await for throwing async functions."
+      "hint": "Use 'async' and 'await' keywords. Create Tasks for concurrent work. Use try await for throwing async functions.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency"
     },
     {
       "name": "concurrency2",
       "dir": "15_concurrency",
-      "hint": "Use async let for concurrent operations. TaskGroup for dynamic concurrency. Check Task.isCancelled in loops."
+      "hint": "Use async let for concurrent operations. TaskGroup for dynamic concurrency. Check Task.isCancelled in loops.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency"
     },
     {
       "name": "concurrency3",
       "dir": "15_concurrency",
-      "hint": "Use 'actor' for thread-safe types. @MainActor for UI updates. 'nonisolated' for synchronous access."
+      "hint": "Use 'actor' for thread-safe types. @MainActor for UI updates. 'nonisolated' for synchronous access.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency"
     },
     {
       "name": "concurrency4",
       "dir": "15_concurrency",
-      "hint": "Implement AsyncSequence and AsyncIteratorProtocol. Use @Sendable for concurrent closures. AsyncStream for bridging."
+      "hint": "Implement AsyncSequence and AsyncIteratorProtocol. Use @Sendable for concurrent closures. AsyncStream for bridging.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency"
     },
     {
       "name": "result_builders1",
       "dir": "16_result_builders",
-      "hint": "Use @resultBuilder attribute. Implement buildBlock. Add buildOptional for if statements. buildArray for loops."
+      "hint": "Use @resultBuilder attribute. Implement buildBlock. Add buildOptional for if statements. buildArray for loops.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/advancedoperators"
     },
     {
       "name": "result_builders2",
       "dir": "16_result_builders",
-      "hint": "Implement buildExpression for transformations. buildEither for if-else. buildFinalResult for post-processing."
+      "hint": "Implement buildExpression for transformations. buildEither for if-else. buildFinalResult for post-processing.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/advancedoperators"
     },
     {
       "name": "result_builders3",
       "dir": "16_result_builders",
-      "hint": "Combine multiple builders. Use buildArray for dynamic content. Create DSLs with natural syntax."
+      "hint": "Combine multiple builders. Use buildArray for dynamic content. Create DSLs with natural syntax.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/advancedoperators"
     },
     {
       "name": "result_builders4",
       "dir": "16_result_builders",
-      "hint": "Type-safe builders with generics. Use phantom types for compile-time checks. Build complex DSLs."
+      "hint": "Type-safe builders with generics. Use phantom types for compile-time checks. Build complex DSLs.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/advancedoperators"
     },
     {
       "name": "advanced_types1",
       "dir": "17_advanced_types",
-      "hint": "Use typealias for clarity. Nested types for organization. Associated types in protocols. 'indirect' for recursive enums."
+      "hint": "Use typealias for clarity. Nested types for organization. Associated types in protocols. 'indirect' for recursive enums.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes"
     },
     {
       "name": "advanced_types2",
       "dir": "17_advanced_types",
-      "hint": "Use 'some' for opaque types. 'any' for existential types. Type erasure hides implementation details."
+      "hint": "Use 'some' for opaque types. 'any' for existential types. Type erasure hides implementation details.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes"
     },
     {
       "name": "advanced_types3",
       "dir": "17_advanced_types",
-      "hint": "Phantom types exist only at compile time. Use them for type-safe APIs. Build state machines with types."
+      "hint": "Phantom types exist only at compile time. Use them for type-safe APIs. Build state machines with types.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes"
     },
     {
       "name": "advanced_types4",
       "dir": "17_advanced_types",
-      "hint": "Conditional conformance with where clauses. Complex generic constraints. Recursive protocol constraints."
+      "hint": "Conditional conformance with where clauses. Complex generic constraints. Recursive protocol constraints.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes"
     },
     {
       "name": "codable1",
       "dir": "18_codable",
-      "hint": "Add : Codable to types. Use CodingKeys for custom names. Handle optionals and dates properly."
+      "hint": "Add : Codable to types. Use CodingKeys for custom names. Handle optionals and dates properly.",
+      "doc": "https://developer.apple.com/documentation/foundation/encoding-and-decoding-custom-types"
     },
     {
       "name": "codable2",
       "dir": "18_codable",
-      "hint": "Implement init(from:) and encode(to:) for custom behavior. Handle polymorphic types. Transform during coding."
+      "hint": "Implement init(from:) and encode(to:) for custom behavior. Handle polymorphic types. Transform during coding.",
+      "doc": "https://developer.apple.com/documentation/foundation/encoding-and-decoding-custom-types"
     },
     {
       "name": "codable3",
       "dir": "18_codable",
-      "hint": "Use property wrappers for Codable. Handle dynamic keys. Implement validation during decoding."
+      "hint": "Use property wrappers for Codable. Handle dynamic keys. Implement validation during decoding.",
+      "doc": "https://developer.apple.com/documentation/foundation/encoding-and-decoding-custom-types"
     },
     {
       "name": "codable4",
       "dir": "18_codable",
-      "hint": "Optimize for performance with lazy decoding. Handle streaming JSON. Implement differential encoding."
+      "hint": "Optimize for performance with lazy decoding. Handle streaming JSON. Implement differential encoding.",
+      "doc": "https://developer.apple.com/documentation/foundation/encoding-and-decoding-custom-types"
     },
     {
       "name": "queue1",
       "dir": "20_dsa_queue",
-      "hint": "A Queue needs storage. Use an array of Int and initialize it as empty: var elements: [Int] = []"
+      "hint": "A Queue needs storage. Use an array of Int and initialize it as empty: var elements: [Int] = []",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/generics"
     },
     {
       "name": "queue2",
       "dir": "20_dsa_queue",
-      "hint": "Enqueue adds to the end. Use mutating func and elements.append(element)"
+      "hint": "Enqueue adds to the end. Use mutating func and elements.append(element)",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/generics"
     },
     {
       "name": "queue3",
       "dir": "20_dsa_queue",
-      "hint": "Dequeue removes from front. Check isEmpty, then use removeFirst(). Return Int? for optional."
+      "hint": "Dequeue removes from front. Check isEmpty, then use removeFirst(). Return Int? for optional.",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/generics"
     },
     {
       "name": "queue4",
       "dir": "20_dsa_queue",
-      "hint": "Peek uses elements.first. isEmpty checks elements.isEmpty. Count returns elements.count"
+      "hint": "Peek uses elements.first. isEmpty checks elements.isEmpty. Count returns elements.count",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/generics"
     },
     {
       "name": "queue5",
       "dir": "20_dsa_queue",
-      "hint": "Add <Element> after Queue. Replace all Int with Element. The syntax is: struct Queue<Element>"
+      "hint": "Add <Element> after Queue. Replace all Int with Element. The syntax is: struct Queue<Element>",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/generics"
     },
     {
       "name": "queue6",
       "dir": "20_dsa_queue",
-      "hint": "For Collection: startIndex is 0, endIndex is elements.count, index(after:) returns i + 1, subscript returns elements[position]"
+      "hint": "For Collection: startIndex is 0, endIndex is elements.count, index(after:) returns i + 1, subscript returns elements[position]",
+      "doc": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/generics"
     }
   ]
 }

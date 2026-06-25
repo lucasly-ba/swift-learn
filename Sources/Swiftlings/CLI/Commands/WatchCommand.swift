@@ -114,6 +114,9 @@ struct WatchCommand: ParsableCommand {
                   Terminal.clear()
                   Terminal.info("Hint for \(currentExercise.name):")
                   print("\n\(currentExercise.hint)\n")
+                  if let doc = currentExercise.doc {
+                    print("📖 Read more: \(doc)\n")
+                  }
                   print("Press any key to continue...")
                   fflush(stdout)
                   _ = rawInput.readKey()

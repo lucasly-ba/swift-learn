@@ -10,6 +10,18 @@ struct Exercise: Codable, Equatable {
 
   let dependencies: [String]?
 
+  /// Link to the relevant chapter of The Swift Programming Language (or other
+  /// official docs). Optional so older metadata without it still decodes.
+  let doc: String?
+
+  init(name: String, dir: String, hint: String, dependencies: [String]? = nil, doc: String? = nil) {
+    self.name = name
+    self.dir = dir
+    self.hint = hint
+    self.dependencies = dependencies
+    self.doc = doc
+  }
+
   var filePath: String {
     "Exercises/\(dir)/\(name).swift"
   }
@@ -19,5 +31,6 @@ struct Exercise: Codable, Equatable {
     case dir
     case hint
     case dependencies
+    case doc
   }
 }
