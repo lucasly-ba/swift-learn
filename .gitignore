@@ -11,3 +11,9 @@ hello
 
 # swiftlings learner progress (generated at runtime)
 .swiftlings-state.json
+
+# Personal local dev environment, not part of the project
+flake.nix
+flake.lock
+.envrc
+.direnv/
