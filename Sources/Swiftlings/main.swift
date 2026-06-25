@@ -1,0 +1,1 @@
+Swiftlings.main()

@@ -17,6 +17,8 @@
         swiftLibs = [
           pkgs.swiftPackages.Foundation
           pkgs.swiftPackages.Dispatch
+          # XCTest is a separate package on Linux too; needed for `swift test`.
+          pkgs.swiftPackages.XCTest
         ];
 
         # `swift file.swift` (interpret mode) can't import Foundation in nixpkgs.
@@ -48,6 +50,7 @@
           # Make the Foundation/Dispatch shared objects discoverable at runtime.
           LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (swiftLibs ++ [
             "${pkgs.swiftPackages.Foundation}/lib/swift/linux"
+            "${pkgs.swiftPackages.XCTest}/lib/swift/linux"
           ]);
 
           # The nixpkgs swift wrapper appends these to every swiftc *compile*,
@@ -56,10 +59,12 @@
           # (Interpret mode, `swift foo.swift`, still won't see Foundation.)
           NIX_SWIFTFLAGS_COMPILE =
             "-I ${pkgs.swiftPackages.Foundation}/lib/swift/linux "
-            + "-I ${pkgs.swiftPackages.Dispatch}/lib/swift";
+            + "-I ${pkgs.swiftPackages.Dispatch}/lib/swift "
+            + "-I ${pkgs.swiftPackages.XCTest}/lib/swift/linux";
           NIX_LDFLAGS =
             "-L ${pkgs.swiftPackages.Foundation}/lib/swift/linux "
-            + "-L ${pkgs.swiftPackages.Dispatch}/lib";
+            + "-L ${pkgs.swiftPackages.Dispatch}/lib "
+            + "-L ${pkgs.swiftPackages.XCTest}/lib/swift/linux";
 
           shellHook = ''
             echo ""

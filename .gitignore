@@ -8,3 +8,6 @@
 
 # compiled binaries from `swiftc file.swift`
 hello
+
+# swiftlings learner progress (generated at runtime)
+.swiftlings-state.json

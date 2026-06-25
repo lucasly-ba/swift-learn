@@ -1,0 +1,477 @@
+{
+  "format_version": 1,
+  "welcome_message": "Welcome to Swiftlings! 🦉\n\nIs this your first time? Don't worry, Swiftlings is made for beginners!\nWe are going to teach you a lot of things about Swift, but before we can\nget started, here are some notes about how Swiftlings operates:\n\n1. The central concept behind Swiftlings is that you solve exercises. These\n   exercises usually contain some compiler or logic errors which cause the\n   exercise to fail compilation or testing. It's your job to find all errors\n   and fix them!\n\n2. Exercises are organized into categories (like 00_basics, 01_control_flow, etc.).\n   Each category contains:\n   • A README.md file with detailed explanations of the concepts\n   • Links to official Swift documentation for deeper learning\n   • 4-7 exercises that progressively build your understanding\n   \n   💡 Tip: Always read the category's README.md before starting its exercises!\n\n3. Make sure to have your editor open in the project directory. Swiftlings\n   will show you the path of the current exercise. Open the exercise file\n   in your editor, fix errors and save the file. Swiftlings will automatically\n   detect the file change and rerun the exercise.\n\n4. If you're stuck on an exercise:\n   • Enter 'h' to show a hint\n   • Check the category's README.md for concept explanations\n   • Visit the official Swift documentation links in the README\n\n5. The exercises use a custom test framework. Look for test() blocks and\n   assertEqual() statements to understand what the exercise expects.\n\n6. Have fun learning Swift! Remember: making mistakes is part of learning!\n\n📌 Don't forget to ⭐ star the Swiftlings GitHub repository!",
+  "final_message": "🎉 Congratulations! You've completed all Swiftlings exercises!\n\nWe hope you enjoyed learning about Swift!\nIf you noticed any issues, don't hesitate to report them on GitHub.\nYou can also contribute your own exercises to help the community!",
+  "exercises": [
+    {
+      "name": "intro1",
+      "dir": "00_basics",
+      "hint": "This exercise compiles successfully! Run it to see the output."
+    },
+    {
+      "name": "intro2",
+      "dir": "00_basics",
+      "hint": "Swift uses 'print()' not 'println()'. The 'ln' part is automatic!"
+    },
+    {
+      "name": "variables1",
+      "dir": "00_basics",
+      "hint": "Variables in Swift are declared with 'var' keyword. Try: var x = 5"
+    },
+    {
+      "name": "variables2",
+      "dir": "00_basics",
+      "hint": "The 'let' keyword creates constants that cannot be changed. Use 'var' for values that need to change!"
+    },
+    {
+      "name": "variables3",
+      "dir": "00_basics",
+      "hint": "Use 'let' for values that won't change (like pi), and 'var' for values that will change (like radius)."
+    },
+    {
+      "name": "types1",
+      "dir": "00_basics",
+      "hint": "String for text, Int for whole numbers, Double for decimal numbers. Match the type to the value!"
+    },
+    {
+      "name": "types2",
+      "dir": "00_basics",
+      "hint": "Add a type annotation like 'let temperature: Double' or use a decimal initial value like '100.0'"
+    },
+    {
+      "name": "operators1",
+      "dir": "00_basics",
+      "hint": "Remember: + for addition, - for subtraction, * for multiplication, / for division, % for remainder"
+    },
+    {
+      "name": "operators2",
+      "dir": "00_basics",
+      "hint": "Use >= for 'greater than or equal', && for 'and', || for 'or'. For ranges, combine conditions with &&"
+    },
+    {
+      "name": "strings1",
+      "dir": "00_basics",
+      "hint": "Use \\(variableName) inside strings for interpolation. For concatenation, use the + operator."
+    },
+    {
+      "name": "strings2",
+      "dir": "00_basics",
+      "hint": "Multi-line strings use triple quotes \"\"\" at the start and end. Use \\ for escape sequences like \\\" and \\n"
+    },
+    {
+      "name": "if1",
+      "dir": "01_control_flow",
+      "hint": "The condition in an if statement must be a Bool. Use comparison operators like >= to create boolean conditions."
+    },
+    {
+      "name": "if2",
+      "dir": "01_control_flow",
+      "hint": "Use < for age check. For multiple conditions, use || (OR) to check if student OR senior (age >= 65)."
+    },
+    {
+      "name": "switch1",
+      "dir": "01_control_flow",
+      "hint": "Each case needs a return statement. Swift doesn't fall through cases by default."
+    },
+    {
+      "name": "switch2",
+      "dir": "01_control_flow",
+      "hint": "Use ranges in switch cases: 90...100 for A, 80...89 for B, etc. Check for invalid scores first!"
+    },
+    {
+      "name": "loops1",
+      "dir": "01_control_flow",
+      "hint": "Use ... for closed range (includes both bounds). For even numbers, check if number % 2 == 0."
+    },
+    {
+      "name": "loops2",
+      "dir": "01_control_flow",
+      "hint": "Change != to ==, increment with +=, and use 'while' instead of 'if' for the digit collection."
+    },
+    {
+      "name": "loops3",
+      "dir": "01_control_flow",
+      "hint": "Use 'return number' to exit the function early. Use 'continue' to skip to the next iteration."
+    },
+    {
+      "name": "functions1",
+      "dir": "02_functions",
+      "hint": "Add -> String return type. Add parameters (a: Int, b: Int). Use parameter names inside the function body."
+    },
+    {
+      "name": "functions2",
+      "dir": "02_functions",
+      "hint": "Change 'x' and 'y' to 'base' and 'exponent'. Add 'of' before number. Use _ to omit external name."
+    },
+    {
+      "name": "functions3",
+      "dir": "02_functions",
+      "hint": "Add = 1.0 for default rate. Use '...' for variadic: (numbers: Int...). Add default values with =."
+    },
+    {
+      "name": "functions4",
+      "dir": "02_functions",
+      "hint": "Add 'inout' before parameter types. The function modifies the original values passed with &."
+    },
+    {
+      "name": "functions5",
+      "dir": "02_functions",
+      "hint": "Function type is (Int, Int) -> Int. Parameter type should accept functions. Return type is a function."
+    },
+    {
+      "name": "arrays1",
+      "dir": "03_collections",
+      "hint": "Use commas between elements. Empty array: [String](). Type should be Array<Double>. Arrays start at index 0. Use .count property."
+    },
+    {
+      "name": "arrays2",
+      "dir": "03_collections",
+      "hint": "Use .append(), .insert(_:at:), .removeLast(). Filter needs == 0. String interpolation needs \\()."
+    },
+    {
+      "name": "dictionaries1",
+      "dir": "03_collections",
+      "hint": "Use : between key and value. Empty dict: [:]. Values should be Double. Use [key] = value syntax. Use .count property."
+    },
+    {
+      "name": "dictionaries2",
+      "dir": "03_collections",
+      "hint": "Unwrap before +=. Use .updateValue(_:forKey:). Use .removeValue(forKey:). Assign nil to remove."
+    },
+    {
+      "name": "sets1",
+      "dir": "03_collections",
+      "hint": "Use square brackets []. Empty: Set<String>(). Convert each string to Character. Use .union(), .intersection(), .subtracting()."
+    },
+    {
+      "name": "optionals1",
+      "dir": "04_optionals",
+      "hint": "Use 'if let name = name'. Add ! to force unwrap. Use ?? \"Unknown\" for default value."
+    },
+    {
+      "name": "optionals2",
+      "dir": "04_optionals",
+      "hint": "Use 'guard let name = name'. Combine with commas. Use the unwrapped value in conditions and operations."
+    },
+    {
+      "name": "optionals3",
+      "dir": "04_optionals",
+      "hint": "Add ? for optional chaining. Use person1 for city. Access through optional chain: ?. for each level."
+    },
+    {
+      "name": "optionals4",
+      "dir": "04_optionals",
+      "hint": "Add ?? \"light\". Chain with ?? 16. Use parentheses: (saved ?? true). Handle double optionals with ?? and casting."
+    },
+    {
+      "name": "structs1",
+      "dir": "05_structs",
+      "hint": "Use 'struct' keyword. Add properties to Person. Use Point(x: 10, y: 20) syntax. Structs get automatic initializers."
+    },
+    {
+      "name": "structs2",
+      "dir": "05_structs",
+      "hint": "Add -> Double return type. Perimeter = 2 * (width + height). Check width == height. Use 'static' for class methods."
+    },
+    {
+      "name": "structs3",
+      "dir": "05_structs",
+      "hint": "Fahrenheit needs get/set. Kelvin = celsius + 273.15, remove setter. Use <= 0 for freezing. Use 'var' for computed properties."
+    },
+    {
+      "name": "structs4",
+      "dir": "05_structs",
+      "hint": "Add 'mutating' keyword. Initialize balance = 0. Add second init. Check balance >= amount before withdrawing."
+    },
+    {
+      "name": "classes1",
+      "dir": "06_classes",
+      "hint": "Change to 'class'. Add init method. Car should inherit (: Vehicle). Call super.init after setting properties."
+    },
+    {
+      "name": "classes2",
+      "dir": "06_classes",
+      "hint": "Remove 'final' to allow override. Add 'override' keyword. Set properties before super.init. Return \"Meow!\" with exclamation."
+    },
+    {
+      "name": "classes3",
+      "dir": "06_classes",
+      "hint": "Make fileHandle private. Use 'static' for class property. Add deinit {}. Change 'private' to 'fileprivate' for verifyPin."
+    },
+    {
+      "name": "classes4",
+      "dir": "06_classes",
+      "hint": "Add 'lazy' keyword. Make shared 'static'. Use 'class' instead of 'static' for overridable methods. Make init private."
+    },
+    {
+      "name": "enums1",
+      "dir": "07_enums",
+      "hint": "Add cases to CompassDirection. Raw values auto-increment from 1. Use .rawValue property. Use init(rawValue:) for creation."
+    },
+    {
+      "name": "enums2",
+      "dir": "07_enums",
+      "hint": "Remove labels from case definition. Add (Int, Int, Int, Int) to upc case. Extract values in switch cases. Use let to bind values."
+    },
+    {
+      "name": "enums3",
+      "dir": "07_enums",
+      "hint": "Complete all switch cases. Check rawValue <= 4 for isInner. Make allCases static. Operations should return calculated results."
+    },
+    {
+      "name": "enums4",
+      "dir": "07_enums",
+      "hint": "Add : CaseIterable. Use 'indirect' for recursive enum. Evaluate recursively. Count: 1 + next.count(). Array: [value] + next.toArray()."
+    },
+    {
+      "name": "protocols1",
+      "dir": "08_protocols",
+      "hint": "Add property/method requirements to protocols. Conform with : Protocol. Implement all requirements. Use Describable as parameter type."
+    },
+    {
+      "name": "protocols2",
+      "dir": "08_protocols",
+      "hint": "Add : Vehicle to inherit. Use 'extension Vehicle' for defaults. Return formatted string. Add where T: Vehicle constraint."
+    },
+    {
+      "name": "protocols3",
+      "dir": "08_protocols",
+      "hint": "Use Named & Aged for composition. Add : Container to Stack. Fix count and getAll. Use items.removeLast() for retrieve."
+    },
+    {
+      "name": "protocols4",
+      "dir": "08_protocols",
+      "hint": "Add : AnyObject for class-only. Use 'weak var delegate'. Set downloader.delegate = self. Comment out struct conformance."
+    },
+    {
+      "name": "extensions1",
+      "dir": "09_extensions",
+      "hint": "Add 'var isEven: Bool { self % 2 == 0 }'. Use components(separatedBy:). Add 'where Element == Int'. Use pow() for rounding."
+    },
+    {
+      "name": "extensions2",
+      "dir": "09_extensions",
+      "hint": "Add : Describable to extension. Use String(repeating:count:). Check indices.contains(). Add where Element: Describable."
+    },
+    {
+      "name": "extensions3",
+      "dir": "09_extensions",
+      "hint": "Add 'where Element: Numeric'. Use reduce. Add enum ValidationError inside extension. Return \"ID-\\(Int.random(in: 10000...99999))\"."
+    },
+    {
+      "name": "extensions4",
+      "dir": "09_extensions",
+      "hint": "Add 'where Value: Numeric' and 'where Key == String'. Use 'guard let self else { throw }'. Add 'where Element: Priceable'."
+    },
+    {
+      "name": "generics1",
+      "dir": "10_generics",
+      "hint": "Add <T> after function name. Change parameter/return types to T. Add <T: Comparable>. Use <T, U> for multiple parameters."
+    },
+    {
+      "name": "generics2",
+      "dir": "10_generics",
+      "hint": "Add <T: Equatable>. Add <T: Numeric>. Use <T: Comparable & CustomStringConvertible>. Add 'where T: Comparable' to method."
+    },
+    {
+      "name": "generics3",
+      "dir": "10_generics",
+      "hint": "Add 'associatedtype Item'. Use items.removeFirst(). Capture store in var. Implement storage[key] = value."
+    },
+    {
+      "name": "generics4",
+      "dir": "10_generics",
+      "hint": "Add 'where Failure: Error'. Check case with switch. Add ': Equatable where Success: Equatable, Failure: Equatable'. Use '-> some Shape'."
+    },
+    {
+      "name": "error_handling1",
+      "dir": "11_error_handling",
+      "hint": "Define MyError enum conforming to Error. Use 'throw' to throw errors. Use do-catch blocks to handle errors."
+    },
+    {
+      "name": "error_handling2",
+      "dir": "11_error_handling",
+      "hint": "Add 'throws' to function signature. Use 'defer' for cleanup code. Handle all error cases in catch blocks."
+    },
+    {
+      "name": "error_handling3",
+      "dir": "11_error_handling",
+      "hint": "Use 'try?' for optional results. Use 'try!' when you're certain there's no error. Use 'rethrows' for higher-order functions."
+    },
+    {
+      "name": "error_handling4",
+      "dir": "11_error_handling",
+      "hint": "Use Result<Success, Failure> type. Use .flatMap for chaining. Implement custom error descriptions."
+    },
+    {
+      "name": "closures1",
+      "dir": "12_closures",
+      "hint": "Basic closure syntax: { (params) -> ReturnType in ... }. Use trailing closure syntax. Shorthand argument names: $0, $1."
+    },
+    {
+      "name": "closures2",
+      "dir": "12_closures",
+      "hint": "Use [weak self] or [unowned self] in capture lists. @escaping is needed for stored closures. Avoid retain cycles."
+    },
+    {
+      "name": "closures3",
+      "dir": "12_closures",
+      "hint": "Use @autoclosure for delayed evaluation. Multiple trailing closures have labels. Use functional methods like map, filter, reduce."
+    },
+    {
+      "name": "closures4",
+      "dir": "12_closures",
+      "hint": "Build function composition with closures. Use currying for partial application. Create DSLs with closure builders."
+    },
+    {
+      "name": "memory1",
+      "dir": "13_memory_management",
+      "hint": "Use 'weak' for delegates and optional references. Use 'unowned' when you're sure the reference won't be nil."
+    },
+    {
+      "name": "memory2",
+      "dir": "13_memory_management",
+      "hint": "Closures capture values strongly by default. Use capture lists [weak self] to break cycles. Check for nil with guard let."
+    },
+    {
+      "name": "memory3",
+      "dir": "13_memory_management",
+      "hint": "Use weak for parent references in children. Timer retains its target strongly. Notification observers can cause retention."
+    },
+    {
+      "name": "memory4",
+      "dir": "13_memory_management",
+      "hint": "Implement object pooling for reuse. Use weak collections for observers. Profile memory usage and identify leaks."
+    },
+    {
+      "name": "property_wrappers1",
+      "dir": "14_property_wrappers",
+      "hint": "Use @propertyWrapper. Implement wrappedValue. Add init(wrappedValue:). Access with $propertyName for projectedValue."
+    },
+    {
+      "name": "property_wrappers2",
+      "dir": "14_property_wrappers",
+      "hint": "Implement projectedValue for $ access. Use willSet/didSet in wrappedValue. Property wrappers can have their own storage."
+    },
+    {
+      "name": "property_wrappers3",
+      "dir": "14_property_wrappers",
+      "hint": "Property wrappers can be generic. Multiple wrappers compose from inside out. Use static subscript for key paths."
+    },
+    {
+      "name": "property_wrappers4",
+      "dir": "14_property_wrappers",
+      "hint": "Implement Codable for property wrappers. Use @dynamicMemberLookup for flexible access. Create DSLs with wrappers."
+    },
+    {
+      "name": "concurrency1",
+      "dir": "15_concurrency",
+      "hint": "Use 'async' and 'await' keywords. Create Tasks for concurrent work. Use try await for throwing async functions."
+    },
+    {
+      "name": "concurrency2",
+      "dir": "15_concurrency",
+      "hint": "Use async let for concurrent operations. TaskGroup for dynamic concurrency. Check Task.isCancelled in loops."
+    },
+    {
+      "name": "concurrency3",
+      "dir": "15_concurrency",
+      "hint": "Use 'actor' for thread-safe types. @MainActor for UI updates. 'nonisolated' for synchronous access."
+    },
+    {
+      "name": "concurrency4",
+      "dir": "15_concurrency",
+      "hint": "Implement AsyncSequence and AsyncIteratorProtocol. Use @Sendable for concurrent closures. AsyncStream for bridging."
+    },
+    {
+      "name": "result_builders1",
+      "dir": "16_result_builders",
+      "hint": "Use @resultBuilder attribute. Implement buildBlock. Add buildOptional for if statements. buildArray for loops."
+    },
+    {
+      "name": "result_builders2",
+      "dir": "16_result_builders",
+      "hint": "Implement buildExpression for transformations. buildEither for if-else. buildFinalResult for post-processing."
+    },
+    {
+      "name": "result_builders3",
+      "dir": "16_result_builders",
+      "hint": "Combine multiple builders. Use buildArray for dynamic content. Create DSLs with natural syntax."
+    },
+    {
+      "name": "result_builders4",
+      "dir": "16_result_builders",
+      "hint": "Type-safe builders with generics. Use phantom types for compile-time checks. Build complex DSLs."
+    },
+    {
+      "name": "advanced_types1",
+      "dir": "17_advanced_types",
+      "hint": "Use typealias for clarity. Nested types for organization. Associated types in protocols. 'indirect' for recursive enums."
+    },
+    {
+      "name": "advanced_types2",
+      "dir": "17_advanced_types",
+      "hint": "Use 'some' for opaque types. 'any' for existential types. Type erasure hides implementation details."
+    },
+    {
+      "name": "advanced_types3",
+      "dir": "17_advanced_types",
+      "hint": "Phantom types exist only at compile time. Use them for type-safe APIs. Build state machines with types."
+    },
+    {
+      "name": "advanced_types4",
+      "dir": "17_advanced_types",
+      "hint": "Conditional conformance with where clauses. Complex generic constraints. Recursive protocol constraints."
+    },
+    {
+      "name": "codable1",
+      "dir": "18_codable",
+      "hint": "Add : Codable to types. Use CodingKeys for custom names. Handle optionals and dates properly."
+    },
+    {
+      "name": "codable2",
+      "dir": "18_codable",
+      "hint": "Implement init(from:) and encode(to:) for custom behavior. Handle polymorphic types. Transform during coding."
+    },
+    {
+      "name": "codable3",
+      "dir": "18_codable",
+      "hint": "Use property wrappers for Codable. Handle dynamic keys. Implement validation during decoding."
+    },
+    {
+      "name": "codable4",
+      "dir": "18_codable",
+      "hint": "Optimize for performance with lazy decoding. Handle streaming JSON. Implement differential encoding."
+    },
+    {
+      "name": "queue1",
+      "dir": "20_dsa_queue",
+      "hint": "A Queue needs storage. Use an array of Int and initialize it as empty: var elements: [Int] = []"
+    },
+    {
+      "name": "queue2",
+      "dir": "20_dsa_queue",
+      "hint": "Enqueue adds to the end. Use mutating func and elements.append(element)"
+    },
+    {
+      "name": "queue3",
+      "dir": "20_dsa_queue",
+      "hint": "Dequeue removes from front. Check isEmpty, then use removeFirst(). Return Int? for optional."
+    },
+    {
+      "name": "queue4",
+      "dir": "20_dsa_queue",
+      "hint": "Peek uses elements.first. isEmpty checks elements.isEmpty. Count returns elements.count"
+    },
+    {
+      "name": "queue5",
+      "dir": "20_dsa_queue",
+      "hint": "Add <Element> after Queue. Replace all Int with Element. The syntax is: struct Queue<Element>"
+    },
+    {
+      "name": "queue6",
+      "dir": "20_dsa_queue",
+      "hint": "For Collection: startIndex is 0, endIndex is elements.count, index(after:) returns i + 1, subscript returns elements[position]"
+    }
+  ]
+}
