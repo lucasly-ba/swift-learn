@@ -18,7 +18,14 @@ struct ProgressBar {
     guard total > 0 else { return "[No exercises]" }
 
     let percentage = Double(completed) / Double(total)
-    let filledWidth = Int(Double(width) * percentage)
+    // Round to the nearest cell, and show at least one filled cell once any
+    // exercise is done, so the bar visibly advances from the very first one
+    // instead of flooring to zero for a while.
+    var filledWidth = Int((Double(width) * percentage).rounded())
+    if completed > 0 {
+      filledWidth = max(1, filledWidth)
+    }
+    filledWidth = min(filledWidth, width)
     let emptyWidth = width - filledWidth
 
     var bar = "["
@@ -99,7 +106,7 @@ struct SwiftlingsUI {
   private func renderDoneHeader(_ exercise: Exercise) {
     print("Exercise done ✓".green)
     if let solution = solutionPath(for: exercise) {
-      print("Solution for comparison: \(solution.underline)")
+      print("Solution for comparison: \(Terminal.colored(solution, color: .cyan).underline)")
     }
     print("When done experimenting, enter `n` to move on to the next exercise 🦉")
     print("")
@@ -125,7 +132,8 @@ struct SwiftlingsUI {
         }
 
       case .compilationError(let message):
-        Terminal.error("Compilation error:")
+        // The compiler output already marks the error (file:line and a red
+        // "error:"), so we show it on its own without an extra header.
         print(message)
 
       case .testFailure(let message):

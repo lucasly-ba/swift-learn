@@ -56,6 +56,19 @@ enum Terminal {
     return Configuration.UI.defaultTerminalWidth
   }
 
+  /// The terminal height in rows, so a full-screen list can size its viewport.
+  /// Falls back to $LINES, then 24, when there is no real terminal.
+  static func height() -> Int {
+    var size = winsize()
+    if ioctl(STDOUT_FILENO, UInt(TIOCGWINSZ), &size) == 0, size.ws_row > 0 {
+      return Int(size.ws_row)
+    }
+    if let lines = ProcessInfo.processInfo.environment["LINES"], let value = Int(lines), value > 0 {
+      return value
+    }
+    return 24
+  }
+
   /// Move cursor to specific position
   static func moveCursor(to position: (row: Int, column: Int)) {
     print("\u{001B}[\(position.row);\(position.column)H", terminator: "")
