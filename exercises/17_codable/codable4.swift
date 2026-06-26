@@ -166,6 +166,8 @@ struct ChunkedArray<Element: Codable>: Codable {
 }
 
 func main() {
+    print("codable4: performance-oriented Codable")
+
     test("Lazy document decoding") {
         let json = """
         {
