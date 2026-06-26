@@ -129,6 +129,8 @@ struct Temperature: Codable {
 }
 
 func main() {
+    print("codable2: custom encoding and decoding")
+
     test("Custom color encoding") {
         let color = Color(red: 1.0, green: 0.5, blue: 0.0)
         

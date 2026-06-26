@@ -165,6 +165,8 @@ struct MixedData: Codable {
 }
 
 func main() {
+    print("codable3: advanced Codable patterns")
+
     test("Default values property wrapper") {
         let emptyJSON = "{}".data(using: .utf8)!
         let partialJSON = """
