@@ -10,7 +10,7 @@ struct Rectangle {
     let height: Double
 
     // TODO: Add a computed property `area` of type Double that returns
-    // width * height. A computed property uses { } instead of a stored value.
+    // width * height.
 }
 
 func test() {
