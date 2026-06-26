@@ -44,9 +44,7 @@ struct ProgressBar {
   /// A full progress line sized to fit the current terminal width on one line,
   /// so the bar never wraps. The bar grows or shrinks with the window.
   func formattedProgress() -> String {
-    let percentage = total > 0 ? Double(completed) / Double(total) * 100 : 0
-    let percentageStr = String(format: "%.0f%%", percentage)
-    let counts = " \(completed)/\(total) (\(percentageStr))"
+    let counts = " \(completed)/\(total)"
     // "Progress: " is 10 columns and the bar adds 2 for its brackets; leave one
     // spare column so a full bar never tips onto a second line.
     let fixed = 10 + 2 + counts.count + 1
@@ -89,7 +87,7 @@ struct SwiftlingsUI {
   }
 
   private func renderHint(_ exercise: Exercise) {
-    print("Hint".underline)
+    print("Hint".blue.underline)
     print(exercise.hint)
     if let doc = exercise.doc {
       print("")
@@ -119,10 +117,11 @@ struct SwiftlingsUI {
   private func renderResult(_ result: ExerciseResult) {
     switch result {
       case .success(let output):
-        print("Output".underline)
-        print("")
-        if !output.isEmpty {
-          print(output)
+        let trimmed = output.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !trimmed.isEmpty {
+          print("Output".underline)
+          print("")
+          print(trimmed)
         }
 
       case .compilationError(let message):

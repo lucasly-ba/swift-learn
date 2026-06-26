@@ -139,42 +139,22 @@ public enum SwiftlingsAssert {
     }
 
     let failedTests = testResults.filter { !$0.passed }
-    let passedCount = testResults.filter { $0.passed }.count
-    let totalCount = testResults.count
 
-    print("\n" + String(repeating: "=", count: 50))
-    print("Test Results")
-    print(String(repeating: "=", count: 50))
-
-    // Group results by test name
-    let groupedResults = Dictionary(grouping: testResults) { $0.testName }
-
-    for (testName, results) in groupedResults {
-      let testPassed = results.allSatisfy { $0.passed }
-      let icon = testPassed ? "✅" : "❌"
-      print("\n\(icon) \(testName.isEmpty ? "Tests" : testName)")
-
-      for result in results {
-        if !result.passed {
-          print("   \(result.message)")
-          let fileName = URL(fileURLWithPath: result.file).lastPathComponent
-          print("   at \(fileName):\(result.line)")
-        }
-      }
-    }
-
-    print("\n" + String(repeating: "=", count: 50))
-    print("Summary: \(passedCount)/\(totalCount) assertions passed")
-
+    // On success, stay quiet so the only thing in the "Output" panel is the
+    // exercise's own output, the way Rustlings does it. The runner reports the
+    // pass with "Exercise done" and the exit code.
     if failedTests.isEmpty {
-      print("✅ All tests passed!")
-      print(String(repeating: "=", count: 50) + "\n")
       exit(0)
-    } else {
-      print("❌ \(failedTests.count) assertion(s) failed")
-      print(String(repeating: "=", count: 50) + "\n")
-      exit(1)
     }
+
+    // On failure, show just the assertions that failed and where.
+    for result in failedTests {
+      let testName = result.testName.isEmpty ? "Test" : result.testName
+      print("\(testName): \(result.message)")
+      let fileName = URL(fileURLWithPath: result.file).lastPathComponent
+      print("  at \(fileName):\(result.line)")
+    }
+    exit(1)
   }
 
   /// Clear all test results (useful for testing)

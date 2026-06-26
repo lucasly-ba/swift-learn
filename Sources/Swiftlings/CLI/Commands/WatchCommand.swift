@@ -83,10 +83,13 @@ struct WatchCommand: ParsableCommand {
 
       switch String(key).lowercased() {
         case "h":
-          // Show the hint inline under the exercise, like Rustlings, instead of
-          // taking over the screen with a separate "press any key" page.
+          // Show the hint inline under the exercise, like Rustlings. Just redraw
+          // the screen we already have, do not recompile, so there is no
+          // "Compiling..." flash.
           showHint = true
-          runCurrentExercise()
+          if let result = lastResult {
+            ui.renderWatchMode(currentExercise: currentExercise, result: result, showHint: showHint)
+          }
 
         case "l":
           Terminal.clear()
@@ -177,7 +180,7 @@ struct WatchCommand: ParsableCommand {
             if done[index] { continue }
             checking = index
             redrawGrid()
-            if let result = try? ExerciseRunner(exercise: exercise).run(), result.isSuccess {
+            if let result = try? ExerciseRunner(exercise: exercise).run(quiet: true), result.isSuccess {
               done[index] = true
               manager.markCompleted(exercise)
             }

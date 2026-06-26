@@ -27,8 +27,10 @@ final class ExerciseRunner {
     self.testDetector = testDetector
   }
 
-  /// Run the exercise
-  func run() throws -> ExerciseResult {
+  /// Run the exercise. Pass `quiet: true` to skip the "Compiling..." and
+  /// "Running..." progress lines, which would otherwise corrupt an in-place
+  /// redraw like the check-all grid.
+  func run(quiet: Bool = false) throws -> ExerciseResult {
     let tempDir = createTempDirectory()
     defer { cleanupTempDirectory(tempDir) }
 
@@ -39,7 +41,7 @@ final class ExerciseRunner {
     let usesTests = testDetector.usesTestApproach(exercisePath: sourceFile)
 
     // Compile
-    Terminal.progress("Compiling \(exercise.name)...")
+    if !quiet { Terminal.progress("Compiling \(exercise.name)...") }
     let compilationResult = try compiler.compile(
       exercise: exercise,
       in: tempDir,
@@ -48,7 +50,7 @@ final class ExerciseRunner {
 
     switch compilationResult {
       case .success(let output):
-        if !output.isEmpty {
+        if !output.isEmpty && !quiet {
           Terminal.info("Compiler output: \(output)")
         }
       case .failure(let message):
@@ -56,7 +58,7 @@ final class ExerciseRunner {
     }
 
     // Execute
-    Terminal.progress("Running \(exercise.name)...")
+    if !quiet { Terminal.progress("Running \(exercise.name)...") }
     let executablePath = tempDir.appendingPathComponent("exercise")
     let executionResult = try executor.execute(
       executablePath: executablePath,
