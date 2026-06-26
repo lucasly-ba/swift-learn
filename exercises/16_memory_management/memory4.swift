@@ -100,6 +100,8 @@ struct URLBuilder {
 }
 
 func main() {
+    print("memory4: value vs reference types")
+
     test("Copy-on-write optimization") {
         var data1 = LargeData(size: 1000)
         let data2 = data1  // Should not copy storage yet

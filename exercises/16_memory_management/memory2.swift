@@ -102,6 +102,8 @@ class TimerController {
 }
 
 func main() {
+    print("memory2: weak/unowned capture demo")
+
     test("Async closure capture") {
         var loader: DataLoader? = DataLoader()
         let expectation = DispatchSemaphore(value: 0)
