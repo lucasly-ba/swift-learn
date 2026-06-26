@@ -10,7 +10,7 @@ final class TestDetector {
 
   /// Determine if the exercise uses the test-based approach
   func usesTestApproach(exercisePath: URL) -> Bool {
-    guard let content = try? String(contentsOf: exercisePath) else {
+    guard let content = try? String(contentsOf: exercisePath, encoding: .utf8) else {
       return false
     }
 
