@@ -92,25 +92,11 @@ struct WatchCommand: ParsableCommand {
           }
 
         case "l":
-          Terminal.clear()
-          let stats = manager.getProgressStats()
-          let progressBar = ProgressBar(completed: stats.completed, total: stats.total, width: 80)
-
-          Terminal.info("Exercise List")
-          print("\n\(progressBar.formattedProgress())\n")
-
-          let exercisesByDir = Dictionary(grouping: manager.getAllExercises()) { $0.dir }
-          for (dir, exercises) in exercisesByDir.sorted(by: { $0.key < $1.key }) {
-            print("\n[\(dir)]")
-            for exercise in exercises {
-              let status = manager.isCompleted(exercise.name) ? "✓" : "○"
-              let current = exercise.name == currentExercise.name ? " ← current" : ""
-              print("  \(status) \(exercise.name)\(current)")
-            }
+          let list = ExerciseListView(manager: manager, input: rawInput)
+          if let chosen = list.run() {
+            currentExercise = chosen
           }
-
-          print("\nPress any key to continue...")
-          _ = rawInput.waitForKey()
+          showHint = false
           runCurrentExercise()
 
         case "n":
@@ -139,7 +125,7 @@ struct WatchCommand: ParsableCommand {
             + Terminal.colored("Checking", color: .blue) + " - "
             + Terminal.colored("Done", color: .green) + " - "
             + Terminal.colored("Pending", color: .red))
-          print("Press any key to stop.")
+          print("Press 'q' to quit.")
           print("")
 
           let exercises = manager.getAllExercises()
@@ -173,7 +159,7 @@ struct WatchCommand: ParsableCommand {
 
           var stopped = false
           for (index, exercise) in exercises.enumerated() {
-            if rawInput.readKeyIfAvailable() != nil {
+            if let key = rawInput.readKeyIfAvailable(), String(key).lowercased() == "q" {
               stopped = true
               break
             }
@@ -189,9 +175,13 @@ struct WatchCommand: ParsableCommand {
           checking = nil
           redrawGrid()
 
-          print("")
-          print(stopped ? "Stopped. Press any key to continue..." : "Press any key to continue...")
-          _ = rawInput.waitForKey()
+          // When the user stops the check with `q`, go straight back to the
+          // exercise. When it finishes on its own, let them look before continuing.
+          if !stopped {
+            print("")
+            print("Done. Press 'q' to continue...")
+            while String(rawInput.waitForKey()).lowercased() != "q" {}
+          }
 
           if let newCurrent = manager.getCurrentExercise() {
             currentExercise = newCurrent
