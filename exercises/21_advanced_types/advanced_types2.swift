@@ -137,6 +137,8 @@ struct AnyStorage<Item> {  // Complete type eraser
 }
 
 func main() {
+    print("advanced_types2: opaque, existential, type erasure")
+
     test("Opaque return types") {
         let shape = makeShape()
         assertEqual(shape.area(), 78.53975, "Circle area", accuracy: 0.00001)
