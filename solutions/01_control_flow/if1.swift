@@ -7,14 +7,13 @@
 
 func checkAge(_ age: Int) -> String {
     var status: String
-    
-    // TODO: Fix the condition - it should check if age is greater than or equal to 18
-    if age {
+
+    if age >= 18 {
         status = "Adult"
     } else {
         status = "Minor"
     }
-    
+
     return status
 }
 
@@ -26,12 +25,12 @@ func main() {
         assertEqual(checkAge(21), "Adult", "Age 21 should be adult")
         assertEqual(checkAge(65), "Adult", "Age 65 should be adult")
     }
-    
+
     test("Age checker correctly identifies minors") {
         assertEqual(checkAge(5), "Minor", "Age 5 should be minor")
         assertEqual(checkAge(12), "Minor", "Age 12 should be minor")
         assertEqual(checkAge(17), "Minor", "Age 17 should be minor")
     }
-    
+
     runTests()
 }

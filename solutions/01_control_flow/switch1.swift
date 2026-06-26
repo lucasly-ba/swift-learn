@@ -6,13 +6,13 @@
 // Fix the switch statement to make the tests pass.
 
 func getDayType(_ day: String) -> String {
-    // TODO: Add the missing return type for each case
     switch day {
     case "Monday", "Tuesday", "Wednesday", "Thursday", "Friday":
-        // Add return statement
+        return "Weekday"
     case "Saturday", "Sunday":
-        // Add return statement
+        return "Weekend"
     default:
+        return "Invalid day"
     }
 }
 
@@ -24,16 +24,16 @@ func main() {
         assertEqual(getDayType("Wednesday"), "Weekday", "Wednesday is a weekday")
         assertEqual(getDayType("Friday"), "Weekday", "Friday is a weekday")
     }
-    
+
     test("Correctly identifies weekends") {
         assertEqual(getDayType("Saturday"), "Weekend", "Saturday is weekend")
         assertEqual(getDayType("Sunday"), "Weekend", "Sunday is weekend")
     }
-    
+
     test("Handles invalid input") {
         assertEqual(getDayType("Funday"), "Invalid day", "Invalid day name")
         assertEqual(getDayType(""), "Invalid day", "Empty string is invalid")
     }
-    
+
     runTests()
 }
