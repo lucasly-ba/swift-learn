@@ -15,9 +15,14 @@ class Point: Hashable {
         self.y = y
     }
 
-    // TODO: A class must implement these itself. Add:
-    //   static func == (lhs: Point, rhs: Point) -> Bool   comparing x and y
-    //   func hash(into hasher: inout Hasher)              combining x and y
+    static func == (lhs: Point, rhs: Point) -> Bool {
+        return lhs.x == rhs.x && lhs.y == rhs.y
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(x)
+        hasher.combine(y)
+    }
 }
 
 func test() {

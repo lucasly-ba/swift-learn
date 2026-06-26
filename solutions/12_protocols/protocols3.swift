@@ -13,46 +13,40 @@ protocol Aged {
     var age: Int { get }
 }
 
-// TODO: Create a type alias for protocol composition
-typealias Person = Named  // Should combine Named & Aged
+typealias Person = Named & Aged
 
-// TODO: Define a protocol with an associated type
 protocol Container {
-    associatedtype Item  // This is correct
+    associatedtype Item
     var count: Int { get }
     mutating func add(_ item: Item)
     func getAll() -> [Item]
 }
 
-// TODO: Implement Container for Stack
-struct Stack<T> {  // Missing protocol conformance
+struct Stack<T>: Container {
     private var items: [T] = []
-    
+
     var count: Int {
-        return 0  // Wrong implementation
+        return items.count
     }
-    
+
     mutating func add(_ item: T) {
-        // Implementation missing
+        items.append(item)
     }
-    
+
     func getAll() -> [T] {
-        return []  // Wrong implementation
+        return items
     }
-    
-    // Add pop method for stack behavior
+
     mutating func pop() -> T? {
         return items.popLast()
     }
 }
 
-// TODO: Create a function that accepts Named & Aged
-func describe(person: Named) -> String {  // Wrong parameter type
-    return "\(person.name)"  // Should include age
+func describe(person: Person) -> String {
+    return "\(person.name) is \(person.age) years old"
 }
 
-// TODO: Create a concrete type that conforms to both
-struct Employee {  // Missing conformance
+struct Employee: Named, Aged {
     let name: String
     let age: Int
     let id: String
@@ -67,29 +61,29 @@ func main() {
         let description = describe(person: employee)
         assertEqual(description, "John is 35 years old", "Description with composition")
     }
-    
+
     test("Associated types") {
         var intStack = Stack<Int>()
         intStack.add(10)
         intStack.add(20)
         intStack.add(30)
-        
+
         assertEqual(intStack.count, 3, "Stack has 3 items")
         assertEqual(intStack.getAll(), [10, 20, 30], "All items in order")
-        
+
         let popped = intStack.pop()
         assertEqual(popped, 30, "Popped last item")
         assertEqual(intStack.count, 2, "Stack has 2 items after pop")
     }
-    
+
     test("Container with strings") {
         var stringStack = Stack<String>()
         stringStack.add("Hello")
         stringStack.add("World")
-        
+
         assertEqual(stringStack.count, 2, "String stack count")
         assertEqual(stringStack.getAll(), ["Hello", "World"], "String stack contents")
     }
-    
+
     runTests()
 }

@@ -5,13 +5,20 @@
 //
 // Fix the type so it conforms to Comparable and CustomStringConvertible.
 
-struct Version {
+struct Version: Comparable, CustomStringConvertible {
     let major: Int
     let minor: Int
 
-    // TODO: Make Version conform to Comparable and CustomStringConvertible.
-    //   description should read like "1.2"
-    //   < should order by major first, then minor
+    var description: String {
+        return "\(major).\(minor)"
+    }
+
+    static func < (lhs: Version, rhs: Version) -> Bool {
+        if lhs.major != rhs.major {
+            return lhs.major < rhs.major
+        }
+        return lhs.minor < rhs.minor
+    }
 }
 
 func test() {
