@@ -166,6 +166,8 @@ struct ContactForm {
 }
 
 func main() {
+    print("property_wrappers4")
+
     test("API endpoint wrapper") {
         let client = APIClient()
         let expectation = DispatchSemaphore(value: 0)

@@ -160,6 +160,8 @@ struct Binding<Value> {
 }
 
 func main() {
+    print("property_wrappers3")
+
     test("Dependency injection wrapper") {
         let service = Service()
         
