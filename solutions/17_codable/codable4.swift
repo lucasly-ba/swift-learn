@@ -13,12 +13,12 @@ struct Event: Codable {
     let date: Date
 }
 
-// TODO: A formatter for the custom "dd/MM/yyyy" date format. Set its dateFormat
-// to "dd/MM/yyyy", its timeZone to UTC, and its locale to en_US_POSIX so it
-// parses dates like "20/01/2024" the same way everywhere.
+// A formatter for the custom "dd/MM/yyyy" date format used by one of the feeds.
 let dayMonthYearFormatter: DateFormatter = {
     let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd"
+    formatter.dateFormat = "dd/MM/yyyy"
+    formatter.timeZone = TimeZone(identifier: "UTC")
+    formatter.locale = Locale(identifier: "en_US_POSIX")
     return formatter
 }()
 
@@ -31,11 +31,18 @@ func yearMonthDay(_ date: Date) -> String {
     return formatter.string(from: date)
 }
 
-// TODO: A .custom strategy reads the raw value and parses it however we like.
-// Decode the string with a singleValueContainer and parse it as "yyyy-MM-dd"
-// (UTC, en_US_POSIX).
+// A .custom strategy reads the raw value and parses it however we like.
 func customDateStrategy(_ decoder: Decoder) throws -> Date {
-    return Date(timeIntervalSince1970: 0)
+    let container = try decoder.singleValueContainer()
+    let string = try container.decode(String.self)
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd"
+    formatter.timeZone = TimeZone(identifier: "UTC")
+    formatter.locale = Locale(identifier: "en_US_POSIX")
+    guard let date = formatter.date(from: string) else {
+        throw DecodingError.dataCorruptedError(in: container, debugDescription: "Bad date")
+    }
+    return date
 }
 
 func main() {
@@ -85,6 +92,7 @@ func main() {
     }
 
     test("Custom decoding strategy") {
+        // A .custom strategy reads the raw value and parses it however you like.
         let data = """
         {"name": "Release", "date": "2024-02-29"}
         """.data(using: .utf8)!

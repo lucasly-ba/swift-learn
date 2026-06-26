@@ -21,15 +21,14 @@ struct Temperature: Codable {
     }
 
     init(from decoder: Decoder) throws {
-        // TODO: decode the "fahrenheit" value and convert it to celsius:
-        // celsius = (fahrenheit - 32) / 1.8
-        self.celsius = 0
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let fahrenheit = try container.decode(Double.self, forKey: .fahrenheit)
+        self.celsius = (fahrenheit - 32) / 1.8
     }
 
     func encode(to encoder: Encoder) throws {
-        // TODO: encode celsius as fahrenheit (celsius * 1.8 + 32).
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(celsius, forKey: .fahrenheit)
+        try container.encode(celsius * 1.8 + 32, forKey: .fahrenheit)
     }
 }
 
@@ -50,17 +49,25 @@ struct RGBColor: Codable {
     }
 
     init(from decoder: Decoder) throws {
-        // TODO: decode the "#RRGGBB" string and parse each pair of hex digits.
-        self.red = 0
-        self.green = 0
-        self.blue = 0
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let hex = try container.decode(String.self, forKey: .hex)
+        let digits = hex.hasPrefix("#") ? String(hex.dropFirst()) : hex
+
+        func component(_ start: Int) -> Int {
+            let lower = digits.index(digits.startIndex, offsetBy: start)
+            let upper = digits.index(lower, offsetBy: 2)
+            return Int(digits[lower..<upper], radix: 16) ?? 0
+        }
+
+        self.red = component(0)
+        self.green = component(2)
+        self.blue = component(4)
     }
 
     func encode(to encoder: Encoder) throws {
-        // TODO: encode "#RRGGBB". String(format: "#%02X%02X%02X", red, green, blue)
-        // builds the string.
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode("#000000", forKey: .hex)
+        let hex = String(format: "#%02X%02X%02X", red, green, blue)
+        try container.encode(hex, forKey: .hex)
     }
 }
 
@@ -73,14 +80,13 @@ struct UserID: Codable, Equatable {
     }
 
     init(from decoder: Decoder) throws {
-        // TODO: use a singleValueContainer to decode a bare Int.
-        self.value = 0
+        let container = try decoder.singleValueContainer()
+        self.value = try container.decode(Int.self)
     }
 
     func encode(to encoder: Encoder) throws {
-        // TODO: use a singleValueContainer to encode the bare Int.
         var container = encoder.singleValueContainer()
-        try container.encode(0)
+        try container.encode(value)
     }
 }
 

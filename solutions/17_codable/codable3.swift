@@ -31,34 +31,34 @@ struct Person: Codable {
     }
 
     init(from decoder: Decoder) throws {
-        // TODO: decode name and age from the top-level container, then open a
-        // nestedContainer(keyedBy: AddressKeys.self, forKey: .address) and decode
-        // street and city from it.
-        self.name = ""
-        self.age = 0
-        self.street = ""
-        self.city = ""
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        name = try container.decode(String.self, forKey: .name)
+        age = try container.decode(Int.self, forKey: .age)
+
+        let address = try container.nestedContainer(keyedBy: AddressKeys.self, forKey: .address)
+        street = try address.decode(String.self, forKey: .street)
+        city = try address.decode(String.self, forKey: .city)
     }
 
     func encode(to encoder: Encoder) throws {
-        // TODO: encode name and age, then encode street and city into a nested
-        // container under the .address key.
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
         try container.encode(age, forKey: .age)
+
+        var address = container.nestedContainer(keyedBy: AddressKeys.self, forKey: .address)
+        try address.encode(street, forKey: .street)
+        try address.encode(city, forKey: .city)
     }
 }
 
 // camelCase properties; the JSON uses snake_case and convertFromSnakeCase.
-// (This one needs no custom code - the synthesized Codable plus the decoder's
-// keyDecodingStrategy handles it.)
 struct Article: Codable {
     let title: String
     let authorName: String
     let wordCount: Int
 }
 
-// Nested arrays of Codable values (also synthesized).
+// Nested arrays of Codable values.
 struct LineItem: Codable {
     let product: String
     let quantity: Int
