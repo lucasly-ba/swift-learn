@@ -29,33 +29,9 @@ struct Queue<Element> {
     }
 }
 
-// TODO: Make Queue conform to Collection protocol
-// You need to implement:
-// 1. typealias Index = Int (or use Int directly)
-// 2. var startIndex: Int { }
-// 3. var endIndex: Int { }
-// 4. func index(after i: Int) -> Int { }
-// 5. subscript(position: Int) -> Element { }
-
-// extension Queue: Collection {
-//     typealias Index = ???
-//     
-//     var startIndex: ??? {
-//         return ???
-//     }
-//     
-//     var endIndex: ??? {
-//         return ???
-//     }
-//     
-//     func index(after i: ???) -> ??? {
-//         return ???
-//     }
-//     
-//     subscript(position: ???) -> ??? {
-//         return elements[???]
-//     }
-// }
+// TODO: Make Queue conform to the Collection protocol, so it works in for-in
+// loops and with methods like map and reduce. Write an
+// `extension Queue: Collection { ... }` below with the members it requires.
 
 func main() {
     test("Collection count property") {
