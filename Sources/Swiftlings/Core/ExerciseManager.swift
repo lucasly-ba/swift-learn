@@ -108,6 +108,13 @@ class ExerciseManager {
     try exerciseResetter.resetExercise(exercise)
   }
 
+  /// Reset an exercise's file to its original state and clear its completion,
+  /// so it shows up as pending again.
+  func resetExerciseAndProgress(_ exercise: Exercise) throws {
+    try exerciseResetter.resetExercise(exercise)
+    progressTracker.resetExercise(exercise.name)
+  }
+
   /// Reset all progress
   func resetAllProgress() {
     progressTracker.resetProgress()

@@ -125,7 +125,7 @@ struct ExerciseListView {
           search = readSearch(initial: search)
           cursor = 0; offset = 0
         case "r":
-          if !items.isEmpty { try? manager.resetExercise(items[cursor]) }
+          if !items.isEmpty { confirmAndReset(items[cursor]) }
         case "c":
           if items.isEmpty { return nil }
           let chosen = items[cursor]
@@ -151,6 +151,27 @@ struct ExerciseListView {
     if !search.isEmpty { line += "   search: \(search)" }
     print(line + " ", terminator: "")
     fflush(nil)
+  }
+
+  /// Confirm, then reset the exercise's file to its original state (discarding
+  /// the user's changes) and clear its completion. Shows a prompt and a result
+  /// message on the bottom line so the user can see it happened; the next loop
+  /// re-renders the list with the row flipped back to PENDING.
+  private func confirmAndReset(_ exercise: Exercise) {
+    Terminal.moveCursor(to: (row: Terminal.height(), column: 1))
+    print("\u{001B}[2KReset \(exercise.name)? This discards your changes to \(exercise.filePath) (y/n) ", terminator: "")
+    fflush(nil)
+    guard String(input.waitForKey()).lowercased() == "y" else { return }
+
+    Terminal.moveCursor(to: (row: Terminal.height(), column: 1))
+    do {
+      try manager.resetExerciseAndProgress(exercise)
+      print("\u{001B}[2K" + "Reset \(exercise.name).".green, terminator: "")
+    } catch {
+      print("\u{001B}[2K" + "Failed to reset \(exercise.name): \(error.localizedDescription)".red, terminator: "")
+    }
+    fflush(nil)
+    Thread.sleep(forTimeInterval: 1)
   }
 
   /// A small inline search prompt: type to filter, Backspace to edit, Enter to
