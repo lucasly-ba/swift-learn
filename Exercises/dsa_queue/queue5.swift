@@ -8,24 +8,21 @@
 
 import Foundation
 
-// TODO: Make Queue generic
-// 1. Add generic type parameter after Queue name
-// 2. Replace all 'Int' types with the generic type
-// 3. Update the array type and method signatures
+// TODO: Make Queue work with any type, not just Int.
 
-struct Queue {  // Add <???> here
-    var elements: [Int] = []  // Change Int to generic type
-    
-    mutating func enqueue(_ element: Int) {  // Change Int to generic type
+struct Queue {
+    var elements: [Int] = []
+
+    mutating func enqueue(_ element: Int) {
         elements.append(element)
     }
-    
-    mutating func dequeue() -> Int? {  // Change Int? to generic type?
+
+    mutating func dequeue() -> Int? {
         guard !elements.isEmpty else { return nil }
         return elements.removeFirst()
     }
-    
-    func peek() -> Int? {  // Change Int? to generic type?
+
+    func peek() -> Int? {
         return elements.first
     }
     
