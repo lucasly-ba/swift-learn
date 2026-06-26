@@ -14,16 +14,13 @@ enum Result<T> {
     case failure(String)
 }
 
-// TODO: Define a Barcode enum with associated values
 enum Barcode {
-    // Add cases:
-    // - upc with 4 Int values
-    // - qrCode with a String value
+    case upc(Int, Int, Int, Int)
+    case qrCode(String)
 }
 
-// TODO: Define a NetworkResponse enum
 enum NetworkResponse {
-    case success(data: Data, statusCode: Int)  // Wrong - don't use labels in enum case
+    case success(Data, Int)
     case error(String)
     case timeout
 }
@@ -34,29 +31,26 @@ struct Data {
 }
 
 func createBarcode() -> Barcode {
-    // TODO: Create a UPC barcode with values (8, 85909, 51226, 3)
-    return Barcode.upc  // Missing associated values
+    return Barcode.upc(8, 85909, 51226, 3)
 }
 
 func handleResponse(_ response: NetworkResponse) -> String {
-    // TODO: Use switch with pattern matching to extract values
     switch response {
-    case .success:  // Not extracting the associated values
-        return "Success"
-    case .error:
-        return "Error"
+    case .success(_, let statusCode):
+        return "Success with \(statusCode)"
+    case .error(let message):
+        return "Error: \(message)"
     case .timeout:
-        return "Timeout"
+        return "Request timed out"
     }
 }
 
 func processResult<T>(_ result: Result<T>) -> String {
     switch result {
-    // TODO: Extract and use the associated values
-    case .success:
-        return "Success"
-    case .failure:
-        return "Failed"
+    case .success(let value):
+        return "Success: \(value)"
+    case .failure(let message):
+        return "Failed: \(message)"
     }
 }
 
@@ -65,7 +59,7 @@ func main() {
 
     test("Enums with associated values") {
         let barcode = createBarcode()
-        
+
         switch barcode {
         case .upc(let a, let b, let c, let d):
             assertEqual(a, 8, "First UPC component")
@@ -76,29 +70,29 @@ func main() {
             assertFalse(true, "Should be UPC barcode")
         }
     }
-    
+
     test("Pattern matching with associated values") {
         let successResponse = NetworkResponse.success(Data(content: "Hello"), 200)
         let errorResponse = NetworkResponse.error("Not found")
         let timeoutResponse = NetworkResponse.timeout
-        
-        assertEqual(handleResponse(successResponse), "Success with 200", 
+
+        assertEqual(handleResponse(successResponse), "Success with 200",
                    "Should include status code")
-        assertEqual(handleResponse(errorResponse), "Error: Not found", 
+        assertEqual(handleResponse(errorResponse), "Error: Not found",
                    "Should include error message")
-        assertEqual(handleResponse(timeoutResponse), "Request timed out", 
+        assertEqual(handleResponse(timeoutResponse), "Request timed out",
                    "Timeout message")
     }
-    
+
     test("Generic enum handling") {
         let success: Result<Int> = .success(42)
         let failure: Result<Int> = .failure("Invalid input")
-        
-        assertEqual(processResult(success), "Success: 42", 
+
+        assertEqual(processResult(success), "Success: 42",
                    "Should include success value")
-        assertEqual(processResult(failure), "Failed: Invalid input", 
+        assertEqual(processResult(failure), "Failed: Invalid input",
                    "Should include error message")
     }
-    
+
     runTests()
 }
