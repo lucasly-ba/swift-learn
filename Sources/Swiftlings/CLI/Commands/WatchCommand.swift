@@ -14,10 +14,14 @@ struct WatchCommand: ParsableCommand {
     if manager.getProgressStats().completed == 0 {
       Terminal.clear()
       print(manager.welcomeMessage)
-      print("\nPress any key to start...")
+      print("\nPress ENTER to continue ", terminator: "")
+      fflush(nil)
       let intro = RawTerminalInput()
       intro.enableRawMode()
-      _ = intro.waitForKey()
+      while true {
+        let key = intro.waitForKey()
+        if key == "\n" || key == "\r" { break }
+      }
       intro.disableRawMode()
     }
 

@@ -58,6 +58,21 @@ swiftlings          # start
 `PATH`. If you would rather not install anything, run it straight from the repo
 with `swift run swiftlings`.
 
+### Starting fresh with `swiftlings init`
+
+Once the `swiftlings` binary is on your `PATH`, you can create a clean copy of
+the exercises anywhere with:
+
+```sh
+swiftlings init      # creates ./swiftlings with the exercises
+cd swiftlings
+swiftlings           # start
+```
+
+This is handy if you want your solved work in its own directory, separate from
+the source checkout you built from. It fetches the exercises over the network, so
+you need to be online the first time.
+
 ## How it works
 
 Open the first unsolved exercise. It has a `// TODO` and a compiler or logic
@@ -65,14 +80,16 @@ error. Fix it and save. In watch mode the runner recompiles and reruns the file
 automatically. An exercise is solved once it compiles and all of its checks pass,
 and you move on to the next one.
 
-While watching, these keys work: `h` for a hint, `l` to list everything, `n` to
-move on once the current exercise passes, `r` to rerun, and `q` to quit.
+While watching, these keys work: `n` to move on once the current exercise
+passes, `h` for a hint, `l` to list everything, `c` to check all exercises, `x`
+to reset the current one back to its starting state, and `q` to quit.
 
 ## Commands
 
 | Command             | What it does                                          |
 | ------------------- | ----------------------------------------------------- |
 | `swiftlings`        | Watch mode: fix, save, repeat                         |
+| `swiftlings init`   | Create a fresh `swiftlings/` directory of exercises   |
 | `swiftlings run`    | Run the current exercise once, or `run NAME`          |
 | `swiftlings list`   | Every exercise and your progress                      |
 | `swiftlings hint`   | A hint, plus a link to the relevant Swift book page   |

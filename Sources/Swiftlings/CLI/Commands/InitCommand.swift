@@ -1,5 +1,6 @@
 import ArgumentParser
 import Foundation
+import Rainbow
 
 struct InitCommand: ParsableCommand {
   static let configuration = CommandConfiguration(
@@ -20,53 +21,50 @@ struct InitCommand: ParsableCommand {
     
     /// Check if directory already exists
     if fileManager.fileExists(atPath: projectPath) && !force {
-      print("❌ Directory '\(projectName)' already exists!")
-      print("💡 Use --force to overwrite or choose a different name with --project-name")
+      print("A directory with the name `\(projectName)` already exists.")
+      print("Move or remove it, run again with --force to overwrite, or pick another name with --project-name.")
       throw ExitCode.failure
     }
-    
-    print("🚀 Initializing Swiftlings project...")
-    
+
+    print("This command will create the directory `\(projectName)/` which will contain the exercises.")
+    print("Press ENTER to continue ", terminator: "")
+    fflush(nil)
+    _ = readLine()
+
     /// Remove existing directory if force flag is set
     if force && fileManager.fileExists(atPath: projectPath) {
       try fileManager.removeItem(atPath: projectPath)
     }
-    
+
     /// Clone the exercises repository
     let cloneResult = Process.execute(
-      "/usr/bin/git",
+      Configuration.Executables.git,
       arguments: [
         "clone",
         "--depth", "1",
         "--branch", "main",
-        "https://github.com/tornikegomareli/swiftlings.git",
+        "https://github.com/lucasly-ba/swiftlings-linux.git",
         projectName
       ]
     )
-    
+
     guard cloneResult.exitCode == 0 else {
-      print("❌ Failed to clone exercises repository")
-      print("Error: \(cloneResult.stderr)")
+      print("Failed to download the exercises.".red)
+      print(cloneResult.stderr)
       throw ExitCode.failure
     }
-    
+
     /// Remove .git directory to disconnect from the original repo
     let gitPath = "\(projectPath)/.git"
     if fileManager.fileExists(atPath: gitPath) {
       try fileManager.removeItem(atPath: gitPath)
     }
-    
-    print("✅ Successfully initialized Swiftlings project in '\(projectName)'!")
+
     print("")
-    print("To get started:")
-    print("  cd \(projectName)")
-    print("  swiftlings")
+    print("Initialization done ✓".green)
     print("")
-    print("Or run a specific exercise:")
-    print("  swiftlings run <exercise-name>")
-    print("")
-    print("For help:")
-    print("  swiftlings --help")
+    print("Run `cd \(projectName)` to go into the generated directory.")
+    print("Then run `swiftlings` to get started.")
   }
 }
 
