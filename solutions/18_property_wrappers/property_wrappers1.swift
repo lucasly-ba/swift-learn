@@ -5,46 +5,50 @@
 //
 // Fix the property wrapper implementations to make the tests pass.
 
-// TODO: Create a basic property wrapper
+import Foundation
+
+@propertyWrapper
 struct Capitalized {
     private var value: String = ""
-    
+
+    init(wrappedValue: String) {
+        self.value = wrappedValue.capitalized
+    }
+
     var wrappedValue: String {
         get { value }
-        set { value = newValue }  // Should capitalize
+        set { value = newValue.capitalized }
     }
 }
 
-// TODO: Create a property wrapper with initialization
 @propertyWrapper
 struct Clamped {
     private var value: Int
     private let range: ClosedRange<Int>
-    
+
     init(wrappedValue: Int, _ range: ClosedRange<Int>) {
         self.range = range
-        self.value = wrappedValue  // Should clamp to range
+        self.value = min(max(wrappedValue, range.lowerBound), range.upperBound)
     }
-    
+
     var wrappedValue: Int {
         get { value }
-        set { value = newValue }  // Should clamp to range
+        set { value = min(max(newValue, range.lowerBound), range.upperBound) }
     }
 }
 
-// TODO: Create a property wrapper with projectedValue
 @propertyWrapper
 struct Validated<Value> {
     private var value: Value
     private let validator: (Value) -> Bool
     private var isValid: Bool = true
-    
+
     init(wrappedValue: Value, _ validator: @escaping (Value) -> Bool) {
         self.value = wrappedValue
         self.validator = validator
         self.isValid = validator(wrappedValue)
     }
-    
+
     var wrappedValue: Value {
         get { value }
         set {
@@ -52,98 +56,94 @@ struct Validated<Value> {
             isValid = validator(newValue)
         }
     }
-    
-    // TODO: Add projectedValue
-    // Should return isValid status
+
+    var projectedValue: Bool {
+        return isValid
+    }
 }
 
-// Test structs using property wrappers
 struct User {
-    @Capitalized var name: String
+    @Capitalized var name: String = ""
     @Clamped(0...100) var age: Int = 0
     @Validated({ $0.contains("@") }) var email: String = ""
 }
 
-// TODO: Create a UserDefaults property wrapper
 @propertyWrapper
 struct UserDefault<T> {
     let key: String
     let defaultValue: T
-    
+
     var wrappedValue: T {
         get {
-            // TODO: Read from UserDefaults
-            return defaultValue
+            return UserDefaults.standard.object(forKey: key) as? T ?? defaultValue
         }
         set {
-            // TODO: Write to UserDefaults
+            UserDefaults.standard.set(newValue, forKey: key)
         }
     }
 }
 
 struct Settings {
-    @UserDefault(key: "username", defaultValue: "Guest") 
+    @UserDefault(key: "username", defaultValue: "Guest")
     var username: String
-    
+
     @UserDefault(key: "volume", defaultValue: 50)
     var volume: Int
 }
 
 func main() {
-    var demo = User(name: "john doe", age: 150, email: "john@example.com")
-    print("name \(demo.name), age \(demo.age), email valid \(demo.$email)")
+    var user = User(name: "john doe", age: 150, email: "john@example.com")
+    print("name \(user.name), age \(user.age), email valid \(user.$email)")
 
     test("Basic property wrapper") {
         var user = User(name: "john doe", age: 25, email: "john@example.com")
-        
+
         assertEqual(user.name, "John Doe", "Name should be capitalized")
-        
+
         user.name = "alice smith"
         assertEqual(user.name, "Alice Smith", "Name should be capitalized on set")
     }
-    
+
     test("Property wrapper with constraints") {
         var user = User(name: "Test", age: 150, email: "test@test.com")
-        
+
         assertEqual(user.age, 100, "Age should be clamped to maximum")
-        
+
         user.age = -10
         assertEqual(user.age, 0, "Age should be clamped to minimum")
-        
+
         user.age = 50
         assertEqual(user.age, 50, "Valid age should not be clamped")
     }
-    
+
     test("Projected value") {
         var user = User(name: "Test", age: 30, email: "invalid-email")
-        
+
         assertFalse(user.$email, "Invalid email should project false")
-        
+
         user.email = "valid@email.com"
         assertTrue(user.$email, "Valid email should project true")
-        
+
         user.email = "another-invalid"
         assertFalse(user.$email, "Invalid email should project false again")
     }
-    
+
     test("UserDefaults wrapper") {
-        // Clear UserDefaults for testing
         UserDefaults.standard.removeObject(forKey: "username")
         UserDefaults.standard.removeObject(forKey: "volume")
-        
+
         var settings = Settings()
-        
+
         assertEqual(settings.username, "Guest", "Should use default value")
         assertEqual(settings.volume, 50, "Should use default volume")
-        
+
         settings.username = "Alice"
         settings.volume = 75
-        
-        // Create new instance to test persistence
+
         let newSettings = Settings()
         assertEqual(newSettings.username, "Alice", "Should read from UserDefaults")
         assertEqual(newSettings.volume, 75, "Should read volume from UserDefaults")
     }
-    
+
     runTests()
 }

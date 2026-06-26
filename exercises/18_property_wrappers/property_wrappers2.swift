@@ -129,6 +129,8 @@ struct Lazy<Value> {
 }
 
 func main() {
+    print("property_wrappers2: composition and projections")
+
     test("Thread-safe property wrapper") {
         var model = DataModel()
         let queue = DispatchQueue(label: "test", attributes: .concurrent)
