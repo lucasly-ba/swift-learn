@@ -6,10 +6,10 @@
 // Fix this code to use the appropriate declaration.
 
 func calculateCircleArea() -> (smallArea: Double, largeArea: Double) {
-    // TODO: This value will never change, so it should be a constant
+    // TODO: This value never changes. Pick the right declaration.
     var pi = 3.14159
-    
-    // TODO: This value needs to change, so it should be a variable
+
+    // TODO: This value changes below. Pick the right declaration.
     let radius = 5.0
     
     let smallArea = pi * radius * radius

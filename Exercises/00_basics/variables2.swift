@@ -4,12 +4,11 @@
 // Fix the code to properly modify the variable.
 
 func countApples() -> (initial: Int, final: Int) {
-    // TODO: Fix this declaration so we can modify the apple count
+    // TODO: Fix this declaration so we can modify the apple count.
     let apples = 3
     let initialCount = apples
-    
+
     // I just bought 2 more apples! Update the count.
-    // Hint: What's the difference between 'let' and 'var'?
     apples = apples + 2
     
     return (initial: initialCount, final: apples)

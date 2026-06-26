@@ -6,11 +6,9 @@
 // Fix the function below to make the tests pass.
 
 func createVariable() -> Int {
-    // TODO: Declare a variable named 'x' with the value 5
-    // Fix the line below - it currently uses 'let' instead of 'var'
+    // TODO: 'x' needs to hold 5 and still be changeable on the next line.
     let x = 5
-    
-    // This line tries to change x, which won't work with 'let'
+
     x = x + 1
     
     return x

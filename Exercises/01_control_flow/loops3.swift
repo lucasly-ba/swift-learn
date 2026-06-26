@@ -10,8 +10,7 @@
 func findFirstNegative(in numbers: [Int]) -> Int? {
     for number in numbers {
         if number < 0 {
-            // TODO: We found a negative number! What should we do?
-            // Hint: We want to stop searching and return this number
+            // TODO: We found a negative number. Stop and return it.
         }
     }
     return nil
@@ -22,8 +21,7 @@ func sumPositiveNumbers(in numbers: [Int]) -> Int {
     
     for number in numbers {
         if number < 0 {
-            // TODO: Skip negative numbers
-            // Hint: Use a control statement to skip to the next iteration
+            // TODO: Skip negative numbers so they are not added to the sum.
         }
         sum += number
     }

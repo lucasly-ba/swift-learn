@@ -8,8 +8,7 @@
 func sumNumbers(from start: Int, to end: Int) -> Int {
     var sum = 0
     
-    // TODO: Fix this loop to include both start and end values
-    // Hint: Use the closed range operator
+    // TODO: This loop should include both the start and end values.
     for i in start..<end {
         sum += i
     }
@@ -20,8 +19,7 @@ func sumNumbers(from start: Int, to end: Int) -> Int {
 func countEvens(in numbers: [Int]) -> Int {
     var count = 0
     
-    // TODO: Add a condition to count only even numbers
-    // Hint: Use the modulo operator (%) to check if divisible by 2
+    // TODO: Only count the even numbers, not every number.
     for number in numbers {
         count += 1
     }
