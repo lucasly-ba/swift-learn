@@ -50,13 +50,14 @@ swift --version
 ```sh
 git clone https://github.com/lucasly-ba/swiftlings-linux.git
 cd swiftlings-linux
-make install        # builds a release binary into ~/.local/bin
-swiftlings          # start
+make install
+swiftlings
 ```
 
-`make install` puts `swiftlings` in `~/.local/bin`, so make sure that is on your
-`PATH`. If you would rather not install anything, run it straight from the repo
-with `swift run swiftlings`.
+`make install` builds a release binary and puts `swiftlings` in `~/.local/bin`,
+so make sure that is on your `PATH`. Then `swiftlings` starts the watcher. If you
+would rather not install anything, run it straight from the repo with
+`swift run swiftlings`.
 
 ### Starting fresh with `swiftlings init`
 
@@ -64,14 +65,15 @@ Once the `swiftlings` binary is on your `PATH`, you can create a clean copy of
 the exercises anywhere with:
 
 ```sh
-swiftlings init      # creates ./swiftlings with the exercises
+swiftlings init
 cd swiftlings
-swiftlings           # start
+swiftlings
 ```
 
-This is handy if you want your solved work in its own directory, separate from
-the source checkout you built from. It fetches the exercises over the network, so
-you need to be online the first time.
+`swiftlings init` creates a `swiftlings/` directory with the exercises, then you
+move into it and start. This is handy if you want your solved work in its own
+directory, separate from the source checkout you built from. It fetches the
+exercises over the network, so you need to be online the first time.
 
 ## How it works
 
