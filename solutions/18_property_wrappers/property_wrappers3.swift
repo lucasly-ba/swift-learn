@@ -6,7 +6,7 @@
 //
 // Fix the property wrappers to make the tests pass.
 
-// TODO: Clamp into a range, and project whether the last write had to be clamped.
+// Clamp into a range, and project whether the last write had to be clamped.
 @propertyWrapper
 struct Clamped {
     private var value: Int
@@ -15,26 +15,26 @@ struct Clamped {
 
     init(wrappedValue: Int, _ range: ClosedRange<Int>) {
         self.range = range
-        // TODO: store the value clamped into `range`, and set `wasClamped` to
-        // true if clamping changed it.
-        self.value = wrappedValue
+        let clamped = min(max(wrappedValue, range.lowerBound), range.upperBound)
+        self.value = clamped
+        self.wasClamped = clamped != wrappedValue
     }
 
     var wrappedValue: Int {
         get { value }
         set {
-            // TODO: clamp newValue into `range` and update `wasClamped`.
-            value = newValue
+            let clamped = min(max(newValue, range.lowerBound), range.upperBound)
+            value = clamped
+            wasClamped = clamped != newValue
         }
     }
 
-    // TODO: project `wasClamped`.
     var projectedValue: Bool {
-        return false
+        return wasClamped
     }
 }
 
-// TODO: Keep every value ever assigned (including the initial one), newest last.
+// Keep every value ever assigned (including the initial one), newest last.
 @propertyWrapper
 struct Logged<Value> {
     private var value: Value
@@ -48,18 +48,17 @@ struct Logged<Value> {
     var wrappedValue: Value {
         get { value }
         set {
-            // TODO: record the new value in `history`.
             value = newValue
+            history.append(newValue)
         }
     }
 
-    // TODO: project the full history.
     var projectedValue: [Value] {
-        return []
+        return history
     }
 }
 
-// TODO: Count how many times the value has been written (not counting init).
+// Count how many times the value has been written (not counting initialization).
 @propertyWrapper
 struct Counted<Value> {
     private var value: Value
@@ -72,8 +71,8 @@ struct Counted<Value> {
     var wrappedValue: Value {
         get { value }
         set {
-            // TODO: increment `writeCount` on each write.
             value = newValue
+            writeCount += 1
         }
     }
 

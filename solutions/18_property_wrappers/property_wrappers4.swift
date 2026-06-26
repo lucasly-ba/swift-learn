@@ -6,7 +6,7 @@
 //
 // Fix the property wrappers to make the tests pass.
 
-// TODO: Clamp an Int into a range.
+// Clamp an Int into a range.
 @propertyWrapper
 struct Clamped {
     private var value: Int
@@ -14,23 +14,18 @@ struct Clamped {
 
     init(wrappedValue: Int, _ range: ClosedRange<Int>) {
         self.range = range
-        // TODO: store the clamped value.
-        self.value = wrappedValue
+        self.value = min(max(wrappedValue, range.lowerBound), range.upperBound)
     }
 
     var wrappedValue: Int {
         get { value }
-        set {
-            // TODO: clamp newValue into `range`.
-            value = newValue
-        }
+        set { value = min(max(newValue, range.lowerBound), range.upperBound) }
     }
 }
 
-// A shared log so the tests can see that the wrapper ran.
+// Record every change in a shared log so we can prove composition ran.
 nonisolated(unsafe) var changeLog: [String] = []
 
-// TODO: Append "<label>=<newValue>" to `changeLog` on every write.
 @propertyWrapper
 struct Logged<Value> {
     private var value: Value
@@ -44,13 +39,13 @@ struct Logged<Value> {
     var wrappedValue: Value {
         get { value }
         set {
-            // TODO: record the change in `changeLog`.
             value = newValue
+            changeLog.append("\(label)=\(newValue)")
         }
     }
 }
 
-// TODO: Round a Double to a fixed number of decimal places on every write.
+// Round a Double to a fixed number of decimal places on every write.
 @propertyWrapper
 struct Rounded {
     private var value: Double
@@ -58,20 +53,22 @@ struct Rounded {
 
     init(wrappedValue: Double, places: Int) {
         self.places = places
-        // TODO: store the rounded value.
-        self.value = wrappedValue
+        self.value = Rounded.round(wrappedValue, to: places)
     }
 
     var wrappedValue: Double {
         get { value }
-        set {
-            // TODO: round newValue to `places` decimal places.
-            value = newValue
-        }
+        set { value = Rounded.round(newValue, to: places) }
+    }
+
+    private static func round(_ x: Double, to places: Int) -> Double {
+        var factor = 1.0
+        for _ in 0..<places { factor *= 10 }
+        return (x * factor).rounded() / factor
     }
 }
 
-// TODO: A generic wrapper that falls back to a default when the collection is empty.
+// A generic wrapper that falls back to a default whenever the collection is empty.
 @propertyWrapper
 struct NonEmpty<C: Collection> {
     private var value: C
@@ -79,16 +76,12 @@ struct NonEmpty<C: Collection> {
 
     init(wrappedValue: C, or fallback: C) {
         self.fallback = fallback
-        // TODO: use `fallback` when wrappedValue is empty.
-        self.value = wrappedValue
+        self.value = wrappedValue.isEmpty ? fallback : wrappedValue
     }
 
     var wrappedValue: C {
         get { value }
-        set {
-            // TODO: use `fallback` when newValue is empty.
-            value = newValue
-        }
+        set { value = newValue.isEmpty ? fallback : newValue }
     }
 }
 
