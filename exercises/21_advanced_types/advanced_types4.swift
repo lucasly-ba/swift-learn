@@ -132,6 +132,8 @@ struct False: BoolType {
 }
 
 func main() {
+    print("advanced_types4: conditional conformance and constraints")
+
     test("Conditional conformance") {
         let box1 = Box(value: 42)
         let box2 = Box(value: 42)

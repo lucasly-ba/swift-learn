@@ -5,11 +5,11 @@
 //
 // Fix the advanced type patterns to make the tests pass.
 
-// TODO: Create phantom types for units
+import Foundation
+
 struct Distance<Unit> {
     let value: Double
-    
-    // TODO: Add conversion initializer
+
     init(_ value: Double) {
         self.value = value
     }
@@ -20,24 +20,15 @@ enum Meters {}
 enum Kilometers {}
 enum Miles {}
 
-// TODO: Add type-safe operations
 extension Distance {
-    static func +<U>(lhs: Distance<U>, rhs: Distance<U>) -> Distance<U> {
-        // TODO: Add distances with same unit
-        return Distance<U>(0)
-    }
-    
-    // TODO: Add conversion methods
-    func converted<ToUnit>(to unit: ToUnit.Type) -> Distance<ToUnit> {
-        // Need to handle conversions
-        return Distance<ToUnit>(0)
+    static func + (lhs: Distance, rhs: Distance) -> Distance {
+        return Distance(lhs.value + rhs.value)
     }
 }
 
-// TODO: Create state machine with phantom types
 struct Door<State> {
     private let id: String
-    
+
     init(id: String) {
         self.id = id
     }
@@ -48,34 +39,28 @@ enum Open {}
 enum Closed {}
 enum Locked {}
 
-// TODO: State transitions
 extension Door where State == Closed {
     func open() -> Door<Open> {
-        // TODO: Return opened door
-        return Door<Open>(id: "")
+        return Door<Open>(id: id)
     }
-    
+
     func lock() -> Door<Locked> {
-        // TODO: Return locked door  
-        return Door<Locked>(id: "")
+        return Door<Locked>(id: id)
     }
 }
 
 extension Door where State == Open {
     func close() -> Door<Closed> {
-        // TODO: Return closed door
-        return Door<Closed>(id: "")
+        return Door<Closed>(id: id)
     }
 }
 
 extension Door where State == Locked {
     func unlock() -> Door<Closed> {
-        // TODO: Return unlocked (closed) door
-        return Door<Closed>(id: "")
+        return Door<Closed>(id: id)
     }
 }
 
-// TODO: Builder pattern with type state
 struct RequestBuilder<State> {
     var url: String = ""
     var method: String = "GET"
@@ -88,42 +73,46 @@ enum URLMissing {}
 enum URLSet {}
 enum Ready {}
 
-// TODO: Type-safe builder
 extension RequestBuilder where State == URLMissing {
     func setURL(_ url: String) -> RequestBuilder<URLSet> {
-        // TODO: Return builder with URL set
-        return RequestBuilder<URLSet>()
+        var builder = RequestBuilder<URLSet>()
+        builder.url = url
+        return builder
     }
 }
 
 extension RequestBuilder where State == URLSet {
     func setMethod(_ method: String) -> RequestBuilder<URLSet> {
-        // TODO: Set method and return same state
-        return self
+        var builder = self
+        builder.method = method
+        return builder
     }
-    
+
     func setHeader(_ key: String, value: String) -> RequestBuilder<URLSet> {
-        // TODO: Add header and return
-        return self
+        var builder = self
+        builder.headers[key] = value
+        return builder
     }
-    
+
     func build() -> RequestBuilder<Ready> {
-        // TODO: Return ready request
-        return RequestBuilder<Ready>()
+        var builder = RequestBuilder<Ready>()
+        builder.url = url
+        builder.method = method
+        builder.headers = headers
+        builder.body = body
+        return builder
     }
 }
 
 extension RequestBuilder where State == Ready {
     func send() -> String {
-        // TODO: Send request (simulated)
-        return "Response"
+        return "\(method) \(url)"
     }
 }
 
-// TODO: Type-level numbers
 struct Vector<N> {
     let elements: [Double]
-    
+
     init(_ elements: Double...) {
         self.elements = Array(elements)
     }
@@ -136,15 +125,12 @@ typealias One = Succ<Zero>
 typealias Two = Succ<One>
 typealias Three = Succ<Two>
 
-// TODO: Type-safe vector operations
 extension Vector {
-    func dot<N>(_ other: Vector<N>) -> Double where N == Three {
-        // TODO: Compute dot product for 3D vectors only
-        return 0
+    func dot(_ other: Vector<Three>) -> Double {
+        return zip(elements, other.elements).map { $0 * $1 }.reduce(0, +)
     }
 }
 
-// TODO: Witness types
 protocol Witness {
     associatedtype Value
     static var value: Value { get }
@@ -158,46 +144,39 @@ struct StringWitness: Witness {
     static var value: String { "Hello" }
 }
 
-// TODO: Use witness types
 func getValue<W: Witness>(_ witness: W.Type) -> W.Value {
-    // TODO: Return witnessed value
     return witness.value
 }
 
 func main() {
-    let demoMeters = Distance<Meters>(100)
-    print("100m + 50m = \((demoMeters + Distance<Meters>(50)).value)")
+    let meters = Distance<Meters>(100)
+    print("100m + 50m = \((meters + Distance<Meters>(50)).value)")
 
     test("Phantom types for units") {
         let meters = Distance<Meters>(100)
         let moreMeters = Distance<Meters>(50)
-        
+
         let total = meters + moreMeters
         assertEqual(total.value, 150, "Added distances")
-        
-        // Conversion
+
         let km: Distance<Kilometers> = meters.converted(to: Kilometers.self)
         assertEqual(km.value, 0.1, "100m = 0.1km")
-        
+
         let miles: Distance<Miles> = km.converted(to: Miles.self)
         assertEqual(miles.value, 0.062137, "0.1km ≈ 0.062137 miles", accuracy: 0.000001)
     }
-    
+
     test("State machine with phantom types") {
         let closedDoor = Door<Closed>(id: "front")
         let openDoor = closedDoor.open()
         let closedAgain = openDoor.close()
         let lockedDoor = closedAgain.lock()
         let unlockedDoor = lockedDoor.unlock()
-        
-        // These should not compile:
-        // closedDoor.close()  // Can't close a closed door
-        // openDoor.lock()     // Can't lock an open door
-        // lockedDoor.open()   // Can't open a locked door
-        
+        _ = unlockedDoor
+
         assertTrue(true, "State transitions enforced at compile time")
     }
-    
+
     test("Type-safe builder") {
         let request = RequestBuilder<URLMissing>()
             .setURL("https://api.example.com/data")
@@ -205,56 +184,46 @@ func main() {
             .setHeader("Content-Type", value: "application/json")
             .setHeader("Authorization", value: "Bearer token")
             .build()
-        
+
         let response = request.send()
         assertEqual(response, "POST https://api.example.com/data", "Request sent")
-        
-        // Can't send without URL:
-        // RequestBuilder<URLMissing>().send()  // Won't compile
     }
-    
+
     test("Type-level numbers") {
         let vec3a = Vector<Three>(1, 2, 3)
         let vec3b = Vector<Three>(4, 5, 6)
-        
+
         let dotProduct = vec3a.dot(vec3b)
         assertEqual(dotProduct, 32, "1*4 + 2*5 + 3*6 = 32")
-        
-        // Can't compute dot product of different dimensions:
-        // let vec2 = Vector<Two>(1, 2)
-        // vec3a.dot(vec2)  // Won't compile
     }
-    
+
     test("Witness types") {
         let intValue = getValue(IntWitness.self)
         assertEqual(intValue, 42, "Int witness value")
-        
+
         let stringValue = getValue(StringWitness.self)
         assertEqual(stringValue, "Hello", "String witness value")
-        
-        // Type is inferred from witness
+
         let value: Int = getValue(IntWitness.self)
         assertEqual(value, 42, "Type inferred correctly")
     }
-    
+
     test("Complex phantom type usage") {
-        // Temperature with phantom types
         struct Temperature<Scale> {
             let value: Double
         }
-        
+
         enum Celsius {}
         enum Fahrenheit {}
-        
+
         let celsius = Temperature<Celsius>(value: 25)
         let fahrenheit = Temperature<Fahrenheit>(value: 77)
-        
-        // Can't accidentally mix scales:
-        // celsius + fahrenheit  // Won't compile
-        
+        _ = celsius
+        _ = fahrenheit
+
         assertTrue(true, "Temperature scales type-safe")
     }
-    
+
     runTests()
 }
 
@@ -279,4 +248,9 @@ extension Distance where Unit == Kilometers {
         }
         return Distance<ToUnit>(value)
     }
+}
+
+// Approximate-equality assert helper used by the distance conversion test.
+func assertEqual(_ actual: Double, _ expected: Double, _ message: String, accuracy: Double) {
+    assertTrue(abs(actual - expected) <= accuracy, "\(message): expected \(expected), got \(actual)")
 }
