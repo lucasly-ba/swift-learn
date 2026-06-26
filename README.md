@@ -61,19 +61,18 @@ error. Fix it and save. In watch mode the runner recompiles and reruns the file
 automatically. An exercise is solved once it compiles and all of its checks pass,
 and you move on to the next one.
 
-While watching, these keys work: `n` to move on once the current exercise
-passes, `h` for a hint, `l` to list everything, `c` to check all exercises, `x`
-to reset the current one back to its starting state, and `q` to quit.
-
 ## Commands
 
-| Command             | What it does                                          |
-| ------------------- | ----------------------------------------------------- |
-| `swiftlings`        | Watch mode: fix, save, repeat                         |
-| `swiftlings run`    | Run the current exercise once, or `run NAME`          |
-| `swiftlings list`   | Every exercise and your progress                      |
-| `swiftlings hint`   | A hint, plus a link to the relevant Swift book page   |
-| `swiftlings reset`  | Put an exercise back to its starting state            |
+While watching, the runner reads these keys:
+
+| Key | What it does                                     |
+| --- | ------------------------------------------------ |
+| `n` | Move on to the next exercise once it passes      |
+| `h` | Show a hint                                      |
+| `l` | List every exercise and your progress            |
+| `c` | Check all exercises                              |
+| `x` | Reset the current exercise to its starting state |
+| `q` | Quit                                             |
 
 ## Topics
 
