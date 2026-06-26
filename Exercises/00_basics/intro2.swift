@@ -8,8 +8,7 @@
 // Fix the code below to make it compile and return "Hello, World!"
 
 func greet() -> String {
-    // TODO: Fix this line - Swift doesn't have a println function
-    // Change 'println' to 'print' to make it compile
+    // TODO: This line does not compile. Make it print the greeting.
     println("Hello, World!")
     
     return "Hello, World!"
