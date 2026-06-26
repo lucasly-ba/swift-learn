@@ -17,22 +17,23 @@ struct Address {
 }
 
 func getPersonInfo() -> (street: String?, city: String?, zip: String?) {
-    let person1: Person? = Person(name: "Alice", 
-                                  address: Address(street: "123 Main St", 
-                                                 city: "Boston", 
+    let person1: Person? = Person(name: "Alice",
+                                  address: Address(street: "123 Main St",
+                                                 city: "Boston",
                                                  zipCode: "02101"))
     let person2: Person? = Person(name: "Bob", address: nil)
     let person3: Person? = nil
-    
-    // TODO: Use optional chaining to get street (missing ? operator)
-    let street = person1.address.street
-    
-    // TODO: Chain through multiple optionals to get city
-    let city = person2?.address.city  // This will be nil - try person1
-    
-    // TODO: Handle nested optionals (zipCode is optional within optional Address)
-    let zip = person1.address?.zipCode  // Need one more level
-    
+
+    // person2 has no address and person3 is nil, so chaining through them is nil.
+    _ = person2
+    _ = person3
+
+    let street = person1?.address?.street
+
+    let city = person1?.address?.city
+
+    let zip = person1?.address?.zipCode
+
     return (street, city, zip)
 }
 
@@ -40,16 +41,14 @@ func transformOptionals() -> (uppercased: String?, count: Int?, firstChar: Chara
     let text: String? = "hello"
     let empty: String? = ""
     let nilText: String? = nil
-    
-    // TODO: Use optional chaining to call uppercased()
-    let uppercased = text.uppercased()  // Missing optional chaining
-    
-    // TODO: Get count with optional chaining (returns Int?)
-    let count = empty.count  // Need optional chaining
-    
-    // TODO: Chain to get first character
-    let firstChar = nilText?.first  // This is correct but try with 'text' instead
-    
+    _ = nilText
+
+    let uppercased = text?.uppercased()
+
+    let count = empty?.count
+
+    let firstChar = text?.first
+
     return (uppercased, count, firstChar)
 }
 
@@ -63,13 +62,13 @@ func main() {
         assertEqual(result.city, "Boston", "Should get city from person1")
         assertEqual(result.zip, "02101", "Should get nested optional zipCode")
     }
-    
+
     test("Optional chaining with methods") {
         let result = transformOptionals()
         assertEqual(result.uppercased, "HELLO", "Should uppercase the text")
         assertEqual(result.count, 0, "Empty string has count 0")
         assertEqual(result.firstChar, "h", "First character of 'hello'")
     }
-    
+
     runTests()
 }
